@@ -1,9 +1,10 @@
 "use client";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import { SettingsProvider } from "@/hooks/settingsContext";
 import { I18nextProvider } from "react-i18next";
-import i18n from '../i18n/i18Config';
+import i18n from "../i18n/i18Config";
+import { CssBaseline } from "@mui/material";
+import module from "./page.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <SettingsProvider>
-          <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
+          <CssBaseline />
+          <I18nextProvider i18n={i18n}>
+            {children}
+          </I18nextProvider>
         </SettingsProvider>
       </body>
     </html>
