@@ -6,12 +6,18 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 type SettingsData = {
   isDarkMode: boolean;
-  setDarkMode: (mode: boolean)=> void;
+  setDarkMode: (mode: boolean) => void;
+  height: number;
+  width: number;
+  isSmallScreen: boolean;
 };
 
 const SettingsContext = createContext<SettingsData>({
   isDarkMode: true,
-  setDarkMode: ()=>{}
+  setDarkMode: () => {},
+  height: 0,
+  width: 0,
+  isSmallScreen: false
 });
 
 export const SettingsProvider = ({
@@ -19,27 +25,42 @@ export const SettingsProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-
   const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
+  const [height, setScreenHeight] = useState<number>(0);
+  const [width, setScreenWidth] = useState<number>(0);
 
-  useEffect(()=>{
-    const settingsData = async()=>{
+  const isSmallScreen = width < 650;
+
+  useEffect(() => {
+    const settingsData = async () => {
       const settingsDataStorage = await settingsStorage.getData();
 
       const isDarkModeStorageData = settingsDataStorage?.isDarkMode ?? true;
       setIsDarkMode(isDarkModeStorageData);
-
     };
     settingsData();
   }, []);
 
-  async function setDarkMode (mode: boolean){
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenHeight(window.innerHeight);
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    setScreenHeight(window.innerHeight);
+    setScreenWidth(window.innerWidth);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  async function setDarkMode(mode: boolean) {
     const settingsDataStorage = await settingsStorage.getData();
-    settingsStorage.setData({...settingsDataStorage, isDarkMode:mode})
+    settingsStorage.setData({ ...settingsDataStorage, isDarkMode: mode });
   }
 
   return (
-    <SettingsContext.Provider value={{ isDarkMode, setDarkMode }}>
+    <SettingsContext.Provider value={{ isDarkMode, setDarkMode, width, height, isSmallScreen }}>
       <ThemeProvider theme={isDarkMode ? dark_theme : ligth_theme}>
         {children}
       </ThemeProvider>
@@ -47,6 +68,6 @@ export const SettingsProvider = ({
   );
 };
 
-export const useSettings = ()=>{
+export const useSettings = () => {
   return useContext(SettingsContext);
-}
+};
