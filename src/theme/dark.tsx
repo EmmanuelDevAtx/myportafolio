@@ -8,7 +8,7 @@ export const dark_theme = createTheme({
         paper:"#7750B4",
       },
       primary: {
-        main: "#FFFFFF"
+        main: "#31B9D5"
       },
       secondary: {
         main: "#8F8F8F",
