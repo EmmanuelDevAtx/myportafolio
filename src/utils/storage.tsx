@@ -24,6 +24,7 @@ class MyStorage<T> {
 
 export interface SettingsStorageInterface {
     isDarkMode?: boolean;
+    lang?: string;
 }
 
 
