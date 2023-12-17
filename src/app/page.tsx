@@ -1,8 +1,12 @@
-import { Typography } from "@mui/material";
+'use client';
+import { MainData } from "@/components/home/mainData";
 
-export default function Home() {
+const Home = () => {
+
   return (
     <main>
+      <MainData/>
     </main>
-  )
-}
+  );
+};
+export default Home;
