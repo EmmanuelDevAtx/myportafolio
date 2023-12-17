@@ -12,6 +12,7 @@ type SettingsData = {
   width: number;
   isSmallScreen: boolean;
   changeLanguage: () => void;
+  isSpanish:boolean;
 };
 
 const SettingsContext = createContext<SettingsData>({
@@ -21,6 +22,7 @@ const SettingsContext = createContext<SettingsData>({
   width: 0,
   isSmallScreen: false,
   changeLanguage: () => {},
+  isSpanish: false
 });
 
 export const SettingsProvider = ({
@@ -34,7 +36,7 @@ export const SettingsProvider = ({
   const [isSpanish, setIsSpanish] = useState<boolean>(true);
   const { i18n } = useTranslation();
 
-  const isSmallScreen = width < 650;
+  const isSmallScreen = (width ?? 1000) < 650;
   useEffect(() => {
     const settingsData = async () => {
       const settingsDataStorage = await settingsStorage.getData();
@@ -83,6 +85,7 @@ export const SettingsProvider = ({
         height,
         isSmallScreen,
         changeLanguage,
+        isSpanish
       }}
     >
       <ThemeProvider theme={isDarkMode ? dark_theme : ligth_theme}>
