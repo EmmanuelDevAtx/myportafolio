@@ -95,6 +95,7 @@ export const Navigation = () => {
       container
       sx={{
         padding: 3,
+        paddingRight:8
       }}
     >
       <Grid item sm={1} xs={1}>
