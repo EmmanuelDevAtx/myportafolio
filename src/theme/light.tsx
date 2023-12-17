@@ -17,14 +17,17 @@ declare module '@mui/material/styles' {
 
 
 export const ligth_theme = createTheme({
-    palette: {
-      mode:'light',
-      primary: {
-        main: "#000000"
-      },
-      secondary: {
-        main: "#282828",
-      },
-      
+  palette: {
+    mode:"light",
+    background:{
+      default:"#DFDFDF",
+      paper:"#7750B4",
     },
+    primary: {
+      main: "#31B9D5"
+    },
+    secondary: {
+      main: "#8F8F8F",
+    },
+  },
   });

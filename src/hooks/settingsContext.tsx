@@ -3,6 +3,7 @@ import { ligth_theme } from "@/theme/light";
 import { settingsStorage } from "@/utils/storage";
 import { ThemeProvider } from "@emotion/react";
 import { createContext, useContext, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type SettingsData = {
   isDarkMode: boolean;
@@ -10,6 +11,7 @@ type SettingsData = {
   height: number;
   width: number;
   isSmallScreen: boolean;
+  changeLanguage: () => void;
 };
 
 const SettingsContext = createContext<SettingsData>({
@@ -17,7 +19,8 @@ const SettingsContext = createContext<SettingsData>({
   setDarkMode: () => {},
   height: 0,
   width: 0,
-  isSmallScreen: false
+  isSmallScreen: false,
+  changeLanguage: () => {},
 });
 
 export const SettingsProvider = ({
@@ -28,15 +31,19 @@ export const SettingsProvider = ({
   const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
   const [height, setScreenHeight] = useState<number>(0);
   const [width, setScreenWidth] = useState<number>(0);
+  const [isSpanish, setIsSpanish] = useState<boolean>(true);
+  const { i18n } = useTranslation();
 
   const isSmallScreen = width < 650;
-
   useEffect(() => {
     const settingsData = async () => {
       const settingsDataStorage = await settingsStorage.getData();
-
       const isDarkModeStorageData = settingsDataStorage?.isDarkMode ?? true;
       setIsDarkMode(isDarkModeStorageData);
+
+      const isSpanishMode = settingsDataStorage?.lang ?? 'es'
+      setIsSpanish(isSpanishMode == 'es');
+      i18n.changeLanguage(isSpanishMode);
     };
     settingsData();
   }, []);
@@ -57,10 +64,27 @@ export const SettingsProvider = ({
   async function setDarkMode(mode: boolean) {
     const settingsDataStorage = await settingsStorage.getData();
     settingsStorage.setData({ ...settingsDataStorage, isDarkMode: mode });
+    setIsDarkMode(mode);
   }
 
+  async function changeLanguage() {
+    i18n.changeLanguage(isSpanish ? 'en': 'es');
+    
+    const settingsDataStorage = await settingsStorage.getData();
+    settingsStorage.setData({ ...settingsDataStorage, lang: isSpanish ? 'en': 'es' });
+    setIsSpanish(i18n.language == 'es');
+  }
   return (
-    <SettingsContext.Provider value={{ isDarkMode, setDarkMode, width, height, isSmallScreen }}>
+    <SettingsContext.Provider
+      value={{
+        isDarkMode,
+        setDarkMode,
+        width,
+        height,
+        isSmallScreen,
+        changeLanguage,
+      }}
+    >
       <ThemeProvider theme={isDarkMode ? dark_theme : ligth_theme}>
         {children}
       </ThemeProvider>

@@ -14,4 +14,4 @@ export const dark_theme = createTheme({
         main: "#8F8F8F",
       },
     },
-  });
+});
