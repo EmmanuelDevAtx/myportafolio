@@ -83,7 +83,7 @@ export const Navigation = () => {
           <ButtonToggle
             CustomIcon1={LangEsIcon}
             CustomIcon2={LangUsIcon}
-            isActive={isSpanish}
+            isActive={!isSpanish}
             onPress={changeLanguage}
             IconColor={theme.palette.text.primary}
           />
@@ -126,7 +126,7 @@ export const Navigation = () => {
           <ButtonToggle
             CustomIcon1={LangEsIcon}
             CustomIcon2={LangUsIcon}
-            isActive={isSpanish}
+            isActive={!isSpanish}
             onPress={changeLanguage}
             IconColor={theme.palette.text.primary}
           />
