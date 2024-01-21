@@ -13,5 +13,9 @@ export const dark_theme = createTheme({
       secondary: {
         main: "#8F8F8F",
       },
+      progress: {
+        background: '#167f94',
+        primary:'#31B9D5'
+      }
     },
 });
