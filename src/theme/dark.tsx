@@ -5,7 +5,7 @@ export const dark_theme = createTheme({
       mode:'dark',
       background:{
         default:"#101417",
-        paper:"#7750B4",
+        paper:"#161c21",
       },
       primary: {
         main: "#31B9D5"

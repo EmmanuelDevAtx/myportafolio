@@ -34,7 +34,7 @@ export const Navigation = () => {
       container
       justifyContent={"space-between"}
       sx={{
-        paddingY: 3,
+        marginY: 3,
       }}
     >
       <Grid item md={4}></Grid>
@@ -180,7 +180,7 @@ const ButtonToggle = ({
   onPress,
   whileHover,
   containerSx,
-}: {
+}: { 
   CustomIcon1: any;
   CustomIcon2?: any;
   isActive?: boolean;

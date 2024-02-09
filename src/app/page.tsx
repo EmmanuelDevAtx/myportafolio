@@ -5,8 +5,9 @@ const Home = () => {
 
   return (
     <main>
-      <MainData/>
+      <MainData />
     </main>
+
   );
 };
 export default Home;
