@@ -25,7 +25,7 @@ export const ligth_theme = createTheme({
     mode: "light",
     background: {
       default: "#DFDFDF",
-      paper: "#7750B4",
+      paper: "#879BAB",
     },
     primary: {
       main: "#31B9D5"
