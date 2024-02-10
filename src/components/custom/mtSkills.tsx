@@ -21,13 +21,14 @@ const skillsData: SkillDatatype[] = [
 skillsData.push(...skillsData);
 
 export const MySkills = () => {
+    const { width } = useSettings();
     return (
         <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ ease: "easeInOut", duration: 4, }}
         >
-            <div className={Css.slider}>
+            <div className={Css.slider} style={{ maxWidth:width}}>
                 <div className={Css.sliderTrack}>
                     {
                         skillsData.map((item: SkillDatatype, index: number) => {
@@ -46,21 +47,19 @@ export const MySkills = () => {
 
 const MinCardSkillData = ({ id, url, name }: { id:string, url: string, name: string }) => {
     const [scale, setScale] = useState<number>(0.7);
+    const { width } = useSettings();
+
       const handleScroll = () => {
         const element = document.getElementById(id);
         if (element) {
             const rect = element.getBoundingClientRect();
             const elementCenterX = rect.left + rect.width / 2;
-            const windowCenterX = window.innerWidth / 1.7;
+            const windowCenterX = width / 1.7;
 
             const marginError = 200;
             if (Math.abs(elementCenterX - windowCenterX) < marginError) {
-                element.classList.add('centered');
-                console.log('centro ')
                 setScale(1);
             } else {
-                element.classList.remove('centered');
-                console.log('no centro ')
                 setScale(0.7);
 
             }

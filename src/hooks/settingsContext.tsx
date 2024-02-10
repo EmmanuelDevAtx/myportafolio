@@ -36,7 +36,7 @@ export const SettingsProvider = ({
   const [isSpanish, setIsSpanish] = useState<boolean>(true);
   const { i18n } = useTranslation();
 
-  const isSmallScreen = (width ?? 1000) < 650;
+  const isSmallScreen = width < 650;
   useEffect(() => {
     const settingsData = async () => {
       const settingsDataStorage = await settingsStorage.getData();
@@ -49,19 +49,19 @@ export const SettingsProvider = ({
     };
     settingsData();
   }, []);
-
   useEffect(() => {
     const handleResize = () => {
       setScreenHeight(window.innerHeight);
       setScreenWidth(window.innerWidth);
     };
-
+    
     window.addEventListener("resize", handleResize);
     setScreenHeight(window.innerHeight);
     setScreenWidth(window.innerWidth);
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
 
   async function setDarkMode(mode: boolean) {
     const settingsDataStorage = await settingsStorage.getData();
