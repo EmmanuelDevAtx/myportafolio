@@ -31,12 +31,12 @@ export const SettingsProvider = ({
   children: React.ReactNode;
 }) => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
-  const [height, setScreenHeight] = useState<number>(0);
-  const [width, setScreenWidth] = useState<number>(0);
+  const [height, setScreenHeight] = useState<number>(window.innerHeight);
+  const [width, setScreenWidth] = useState<number>(window.innerWidth);
   const [isSpanish, setIsSpanish] = useState<boolean>(true);
+  const [isSmallScreen , setIsSmallScreen] = useState<boolean>(window.innerWidth < 650);
   const { i18n } = useTranslation();
 
-  const isSmallScreen = width < 650;
   useEffect(() => {
     const settingsData = async () => {
       const settingsDataStorage = await settingsStorage.getData();
@@ -49,19 +49,21 @@ export const SettingsProvider = ({
     };
     settingsData();
   }, []);
+
   useEffect(() => {
     const handleResize = () => {
       setScreenHeight(window.innerHeight);
       setScreenWidth(window.innerWidth);
+      setIsSmallScreen(window.innerWidth < 650);
     };
     
     window.addEventListener("resize", handleResize);
     setScreenHeight(window.innerHeight);
     setScreenWidth(window.innerWidth);
+    setIsSmallScreen(window.innerWidth < 650);
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
 
   async function setDarkMode(mode: boolean) {
     const settingsDataStorage = await settingsStorage.getData();
