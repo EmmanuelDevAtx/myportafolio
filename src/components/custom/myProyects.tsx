@@ -12,7 +12,7 @@ export const MyProjects = () => {
             </Grid>
             {
                 DataProjects.data.map((item: ItemProyectInputType, number: number) => {
-                    return <Grid item md={DataProjects.data.length >= 3 ? 4 : 12 / DataProjects.data.length }>
+                    return <Grid key={'MyProjectsCard' + item.title} item md={DataProjects.data.length >= 3 ? 4 : 12 / DataProjects.data.length }>
                         <ItemProyect title={item.title} imageUrl={item.imageUrl} technology={item.technology} subtitle={item.subtitle} linkUrlProyect={item.linkUrlProyect} gitHubRepositoryLink={item.gitHubRepositoryLink}/>
                     </Grid>
                 })
