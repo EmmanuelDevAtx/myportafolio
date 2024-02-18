@@ -37,8 +37,8 @@ export const Navigation = () => {
         marginY: 3,
       }}
     >
-      <Grid item md={4}></Grid>
-      <Grid item md={4}>
+      <Grid item md={4} xs={4} sm={4}></Grid>
+      <Grid item md={4} xs={4} sm={4}>
         <Box
           sx={{
             display: "flex",
@@ -113,7 +113,6 @@ export const Navigation = () => {
           direction={"row"}
           justifyContent={"center"}
           height={"100%"}
-          spacing={3}
           alignItems={"center"}
         >
           <ButtonToggle
@@ -201,7 +200,12 @@ export const ButtonToggle = ({
   return (
     <motion.div
       key={key}
-      whileHover={{ scale: 1.1, rotate: 45 }}
+      style={{
+        height: 43,
+        width: 43,
+      }}
+      initial={{ scale: 0.9 }}
+      whileHover={{ scale: 1, rotate: 45 }}
       whileTap={{
         scale: 0.8,
         rotate: -90,
@@ -221,11 +225,17 @@ export const ButtonToggle = ({
         }}
       >
         {!active ? (
-          <CustomIcon1 style={{ fill: IconColor }} />
+          <CustomIcon1 style={{
+            fill: IconColor
+          }} />
         ) : CustomIcon2 ? (
-          CustomIcon2 &&  <CustomIcon2 style={{ fill: IconColor }} />
+          CustomIcon2 && <CustomIcon2 style={{
+            fill: IconColor
+          }} />
         ) : (
-          CustomIcon1 && <CustomIcon1 style={{ fill: IconColor }} />
+          CustomIcon1 && <CustomIcon1 style={{
+            fill: IconColor
+          }} />
         )}
         {CustomIcon3}
       </Box>

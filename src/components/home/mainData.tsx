@@ -12,16 +12,16 @@ export const MainData = () => {
 
   return (
     <Grid container rowSpacing={10}>
-      <Grid item md={12} sx={{ paddingX: !isSmallScreen ? 30 : 0 }}>
+      <Grid item md={12} sm={12} xs={12} sx={{ paddingX: !isSmallScreen ? 30 : 3 }}>
         <Navigation />
       </Grid>
-      <Grid item md={12} sx={{ paddingX: !isSmallScreen ? 30 : 0 }}>
+      <Grid item md={12} sm={12} xs={12} sx={{ paddingX: !isSmallScreen ? 30 : 3 }}>
         <Welcome />
       </Grid>
-      <Grid item md={12}>
+      <Grid item md={12} sm={12} xs={12}>
         <MySkills />
       </Grid>
-      <Grid item md={12} sx={{ paddingX: !isSmallScreen ? 30 : 0 }}>
+      <Grid item md={12} sm={12} xs={12} sx={{ paddingX: !isSmallScreen ? 30 : 3 }}>
         <MyProjects/>
       </Grid>
     </Grid>
