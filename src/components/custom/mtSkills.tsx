@@ -65,14 +65,15 @@ export const MySkills = () => {
 const MinCardSkillData = ({ id, url, name, scale, UpdateScale, idItem }: { id: string, url: string, name: string, scale?: number, UpdateScale: (newScale: number, id: number) => void, idItem: number }) => {
     const handleScroll = () => {
         const element = document.getElementById(id);
+        const { width } = useSettings();
         if (element) {
             const rect = element.getBoundingClientRect();
             const elementCenterX = rect.left + rect.width / 2;
-            const windowCenterX =  window.innerWidth / 1.6;
+            const windowCenterX =  width / 1.6;
 
-            const margin = window.innerWidth * 0.20;
+            const margin = width* 0.20;
 
-            if (elementCenterX > 0 && elementCenterX < window.innerWidth) {
+            if (elementCenterX > 0 && elementCenterX < width) {
                 if (elementCenterX < windowCenterX - margin || elementCenterX > windowCenterX + margin) {
                     UpdateScale(0.7, idItem);
                 } else {
