@@ -8,10 +8,6 @@
 .cardProyects {
     height: '100%';
     width: "100%";
-    border-radius: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    transition: backdrop-filter 0.5s ease-in-out, background-color 0.5s ease-in-out;
 }
 
 .cardProyects:hover{
