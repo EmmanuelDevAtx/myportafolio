@@ -38,8 +38,6 @@ export const SettingsProvider = ({
 
   let isSmallScreen = width < 900;
   
-  console.log('window.innerHeight ', window.innerHeight);
-    console.log('window.innerWidth ', window.innerWidth);
 
   useEffect(() => {
     const settingsData = async () => {
