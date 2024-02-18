@@ -34,7 +34,7 @@ export const SettingsProvider = ({
   const [height, setScreenHeight] = useState<number>(window.innerHeight);
   const [width, setScreenWidth] = useState<number>(window.innerWidth);
   const [isSpanish, setIsSpanish] = useState<boolean>(true);
-  const [isSmallScreen , setIsSmallScreen] = useState<boolean>(window.innerWidth < 650);
+  const [isSmallScreen , setIsSmallScreen] = useState<boolean>(false);
   const { i18n } = useTranslation();
 
   useEffect(() => {
