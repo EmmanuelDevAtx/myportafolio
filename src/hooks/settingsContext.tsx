@@ -34,8 +34,12 @@ export const SettingsProvider = ({
   const [height, setScreenHeight] = useState<number>(0);
   const [width, setScreenWidth] = useState<number>(0);
   const [isSpanish, setIsSpanish] = useState<boolean>(true);
-  const [isSmallScreen , setIsSmallScreen] = useState<boolean>(false);
   const { i18n } = useTranslation();
+
+  let isSmallScreen = width < 900;
+  
+  console.log('window.innerHeight ', window.innerHeight);
+    console.log('window.innerWidth ', window.innerWidth);
 
   useEffect(() => {
     const settingsData = async () => {
@@ -49,20 +53,17 @@ export const SettingsProvider = ({
     };
     settingsData();
   }, []);
-
+  
   useEffect(() => {
     const handleResize = () => {
       setScreenHeight(window.innerHeight);
       setScreenWidth(window.innerWidth);
-      setIsSmallScreen(window.innerWidth < 650);
     };
-    
-    window.addEventListener("resize", handleResize);
-    setScreenHeight(window.innerHeight);
-    setScreenWidth(window.innerWidth);
-    setIsSmallScreen(window.innerWidth < 650);
-
-    return () => window.removeEventListener("resize", handleResize);
+    handleResize();
+  
+    window.addEventListener('resize', handleResize);
+  
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   async function setDarkMode(mode: boolean) {

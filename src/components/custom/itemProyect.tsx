@@ -5,7 +5,7 @@ import GitHub from '/public/svg/redirecIcons/github.svg';
 import poryectsCSS from '../../styles/proyects.module.css';
 import { useSettings } from "@/hooks/settingsContext";
 import { ButtonSimple } from "./buttonSimple";
-import { CustomIcon, IconsEnum  } from "../svgIcons/icons";
+import { CustomIcon, IconsEnum } from "../svgIcons/icons";
 
 type Technologies = {
     iconSelected?: IconsEnum | string;
@@ -23,27 +23,29 @@ export type ItemProyectInputType = {
 
 
 export const ItemProyect = ({ subtitle, linkUrlProyect, imageUrl, title, technology, gitHubRepositoryLink }: ItemProyectInputType) => {
-    
+
     const { isDarkMode } = useSettings();
     const theme = useTheme();
 
     function RedirectLink(url: string) {
         window.open(url);
     };
-    
+
     return (
-        <div className={poryectsCSS.cardBackgroundImage} style={{ backgroundImage: `url(${imageUrl})`}}>
+        <div className={poryectsCSS.cardBackgroundImage} style={{ backgroundImage: `url(${imageUrl})` }}>
             <Card className={poryectsCSS.cardProyects} sx={{
-                 borderRadius: '10px',
-                 backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                 backdropFilter: 'blur(10px)',
-                 transition: 'backdrop-filter 0.5s ease-in-out, background-color 0.5s ease-in-out'
+                maxHeight: 430,
+                height: '100%',
+                borderRadius: '10px',
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                backdropFilter: 'blur(10px)',
+                transition: 'backdrop-filter 0.5s ease-in-out, background-color 0.5s ease-in-out'
             }}>
                 {
                     title &&
                     <CardHeader
-                        titleTypographyProps={{ fontSize: 20, color:theme.palette.cardProyect.main }}
-                        subheaderTypographyProps={{color:theme.palette.cardProyect.disable}}
+                        titleTypographyProps={{ fontSize: 20, color: theme.palette.cardProyect.main }}
+                        subheaderTypographyProps={{ color: theme.palette.cardProyect.disable }}
                         title={title}
                         subheader={subtitle}
                         action={
@@ -81,7 +83,7 @@ export const ItemProyect = ({ subtitle, linkUrlProyect, imageUrl, title, technol
                             technology.map((currentTechnology: Technologies, index: number) => {
                                 return (
                                     <Grid item md={2} sm={2} xs={2} key={currentTechnology?.iconSelected ?? 'ButomItem'}>
-                                        <ButtonItemProyect iconsEnum={currentTechnology?.iconSelected}/>
+                                        <ButtonItemProyect iconsEnum={currentTechnology?.iconSelected} />
                                     </Grid>
                                 )
                             })
@@ -93,19 +95,19 @@ export const ItemProyect = ({ subtitle, linkUrlProyect, imageUrl, title, technol
     );
 }
 
-export const ButtonItemProyect = ({ iconsEnum }: {iconsEnum?: IconsEnum | string }) => {
+export const ButtonItemProyect = ({ iconsEnum }: { iconsEnum?: IconsEnum | string }) => {
     const theme = useTheme();
     const { isDarkMode } = useSettings();
 
-    if(!iconsEnum) return <></>
-    
+    if (!iconsEnum) return <></>
+
     return (
         <ButtonSimple
             initial={{ scale: 0.9 }}
             whileHover={{ scale: 1 }}
             styleMotionDiv={{ flex: 1, padding: 4, height: '86%', borderRadius: 15, backgroundColor: isDarkMode ? theme.palette.text.secondary : 'transparent', border: `1px ${theme.palette.cardProyect.main} solid` }}
         >
-            {CustomIcon(iconsEnum,theme.palette.background.default, '100%', '100%', theme.palette.text.primary)}
+            {CustomIcon(iconsEnum, theme.palette.background.default, '100%', '100%', theme.palette.text.primary)}
         </ButtonSimple>
     );
 }
