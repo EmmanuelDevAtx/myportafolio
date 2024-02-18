@@ -2,7 +2,7 @@ import { Box, Card, CardContent, CardHeader, CardMedia, Grid, Stack, useTheme } 
 import Rive from "@rive-app/react-canvas";
 import WebIcon from '/public/svg/tecnnologies/web_icon.svg';
 import GitHub from '/public/svg/redirecIcons/github.svg';
-import poryectsCSS from '../../styles/proyects.module.css';
+import poryectsCSS from '@/styles/proyects.module.css';
 import { useSettings } from "@/hooks/settingsContext";
 import { ButtonSimple } from "./buttonSimple";
 import { CustomIcon, IconsEnum  } from "../svgIcons/icons";
@@ -33,7 +33,7 @@ export const ItemProyect = ({ subtitle, linkUrlProyect, imageUrl, title, technol
     
     return (
         <div className={poryectsCSS.cardBackgroundImage} style={{ backgroundImage: `url(${imageUrl})`}}>
-            <Card className={poryectsCSS.cardProyects}>
+            <Card className={poryectsCSS.cardProyects} sx={{transition: ''}}>
                 {
                     title &&
                     <CardHeader
