@@ -69,11 +69,11 @@ const MinCardSkillData = ({ id, url, name, scale, UpdateScale, idItem }: { id: s
         if (element) {
             const rect = element.getBoundingClientRect();
             const elementCenterX = rect.left + rect.width / 2;
-            const windowCenterX =  width / 1.6;
+            const windowCenterX =  window.innerWidth / 1.6;
 
-            const margin = width* 0.20;
+            const margin = window.innerWidth* 0.20;
 
-            if (elementCenterX > 0 && elementCenterX < width) {
+            if (elementCenterX > 0 && elementCenterX < window.innerWidth) {
                 if (elementCenterX < windowCenterX - margin || elementCenterX > windowCenterX + margin) {
                     UpdateScale(0.7, idItem);
                 } else {
