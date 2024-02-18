@@ -42,7 +42,7 @@ export const MySkills = () => {
             animate={{ opacity: 1 }}
             transition={{ ease: "easeInOut", duration: 4, }}
         >
-            <div className={Css.slider} style={{ maxWidth: window.innerWidth, overflow:'hidden' }}>
+            <div className={Css.slider} style={{ maxWidth: width, overflow:'hidden' }}>
                 <div className={Css.sliderTrack}>
                     {
                         skillsData.map((item: SkillDatatype, index: number) => {
