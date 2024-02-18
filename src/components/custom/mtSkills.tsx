@@ -63,9 +63,9 @@ export const MySkills = () => {
 }
 
 const MinCardSkillData = ({ id, url, name, scale, UpdateScale, idItem }: { id: string, url: string, name: string, scale?: number, UpdateScale: (newScale: number, id: number) => void, idItem: number }) => {
+    const { width } = useSettings();
     const handleScroll = () => {
         const element = document.getElementById(id);
-        const { width } = useSettings();
         if (element) {
             const rect = element.getBoundingClientRect();
             const elementCenterX = rect.left + rect.width / 2;
@@ -99,7 +99,7 @@ const MinCardSkillData = ({ id, url, name, scale, UpdateScale, idItem }: { id: s
             className={`${Css.slide} ${Css.slider}`}
             initial={{ scale: 0.7 }}
             animate={{ scale: scale ?? 0.7 }}
-            transition={{ ease: "easeInOut", duration: window.innerWidth > 650 ? 10 : 2}}
+            transition={{ ease: "easeInOut", duration: width > 650 ? 10 : 2}}
         >
             <Card sx={{ borderRadius: 5, padding: 3 }}>
                 <Stack textAlign={'center'} justifyItems={'center'}>
