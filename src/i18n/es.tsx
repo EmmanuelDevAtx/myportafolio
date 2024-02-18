@@ -14,5 +14,8 @@ export default {
             description2:"Me gusta resolver problkemas y hacer las cosas mas sencillas.",
             who_am_i:"Ingeniero en Software, Back end y Front end"
         }
+    },
+    proyects:{
+        text:'Mis proyectos'
     }
 }

@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import React, { useState } from "react";
 import { TargetAndTransition, VariantLabels, motion } from "framer-motion";
 import { useSettings } from "@/hooks/settingsContext";
 
@@ -25,7 +25,7 @@ export const Navigation = () => {
   const router = useRouter();
   const pathname = usePathname();
   const theme = useTheme();
-  const [ isOpneSmallMenu, setIsOpenSmallMenu] =useState<boolean>(false);
+  const [isOpneSmallMenu, setIsOpenSmallMenu] = useState<boolean>(false);
 
   const { setDarkMode, isDarkMode, changeLanguage, isSmallScreen, isSpanish } =
     useSettings();
@@ -95,7 +95,7 @@ export const Navigation = () => {
       container
       sx={{
         padding: 3,
-        paddingRight:8
+        paddingRight: 8
       }}
     >
       <Grid item sm={1} xs={1}>
@@ -133,7 +133,7 @@ export const Navigation = () => {
           />
         </Stack>
       </Grid>
-      <SmallNav isOpenXsNav={isOpneSmallMenu} setOpen={()=>setIsOpenSmallMenu(true)} setClose={()=>setIsOpenSmallMenu(false)}/>
+      <SmallNav isOpenXsNav={isOpneSmallMenu} setOpen={() => setIsOpenSmallMenu(true)} setClose={() => setIsOpenSmallMenu(false)} />
     </Grid>
   );
 };
@@ -155,9 +155,8 @@ const ItemNavigation = ({
       sx={{
         paddingBottom: 1,
         borderColor: theme.palette.primary.main,
-        borderBottom: `1px solid ${
-          !isActive ? "transparent" : theme.palette.primary.main
-        }`,
+        borderBottom: `1px solid ${!isActive ? "transparent" : theme.palette.primary.main
+          }`,
         transition: "all 0.3s ease-in-out",
         "&:hover": {
           color: theme.palette.primary.main,
@@ -172,17 +171,21 @@ const ItemNavigation = ({
   );
 };
 
-const ButtonToggle = ({
+export const ButtonToggle = ({
   CustomIcon1,
   CustomIcon2,
+  CustomIcon3,
   isActive,
   IconColor,
   onPress,
   whileHover,
   containerSx,
-}: { 
-  CustomIcon1: any;
+  key
+}: {
+  key?: string,
+  CustomIcon1?: any;
   CustomIcon2?: any;
+  CustomIcon3?: any;
   isActive?: boolean;
   IconColor?: string;
   onPress: () => void;
@@ -197,6 +200,7 @@ const ButtonToggle = ({
   }
   return (
     <motion.div
+      key={key}
       whileHover={{ scale: 1.1, rotate: 45 }}
       whileTap={{
         scale: 0.8,
@@ -219,10 +223,11 @@ const ButtonToggle = ({
         {!active ? (
           <CustomIcon1 style={{ fill: IconColor }} />
         ) : CustomIcon2 ? (
-          <CustomIcon2 style={{ fill: IconColor }} />
+          CustomIcon2 &&  <CustomIcon2 style={{ fill: IconColor }} />
         ) : (
-          <CustomIcon1 style={{ fill: IconColor }} />
+          CustomIcon1 && <CustomIcon1 style={{ fill: IconColor }} />
         )}
+        {CustomIcon3}
       </Box>
     </motion.div>
   );

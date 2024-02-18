@@ -8,6 +8,10 @@ declare module '@mui/material/styles' {
       background: string,
       primary: string
     }
+    cardProyect: {
+      main:string,
+      disable:string
+    }
   }
 
   interface PaletteOptions {
@@ -15,6 +19,10 @@ declare module '@mui/material/styles' {
     progress?: {
       background?: string,
       primary?: string
+    }
+    cardProyect?: {
+      main?:string,
+      disable?:string
     }
   }
 }
@@ -36,6 +44,10 @@ export const ligth_theme = createTheme({
     progress: {
       background: '#79def2',
       primary: '#31B9D5'
-    }
+    },
+    cardProyect: {
+      main:'#f0f0f0',
+      disable:'#dedede'
+    },
   },
 });

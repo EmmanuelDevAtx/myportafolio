@@ -12,6 +12,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.0",
+    "@rive-app/react-canvas": "^4.8.1",
     "@svgr/webpack": "^8.1.0",
     "framer-motion": "^10.16.16",
     "i18next": "^23.7.11",

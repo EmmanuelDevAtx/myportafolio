@@ -4,6 +4,7 @@ import { Welcome } from "./welcome";
 import { MySkills } from "../custom/mtSkills";
 import { Navigation } from "../navigation/nav";
 import { useSettings } from "@/hooks/settingsContext";
+import { MyProjects } from "../custom/myProyects";
 
 export const MainData = () => {
   const { t } = useTranslation();
@@ -19,6 +20,9 @@ export const MainData = () => {
       </Grid>
       <Grid item md={12}>
         <MySkills />
+      </Grid>
+      <Grid item md={12} sx={{ paddingX: !isSmallScreen ? 30 : 0 }}>
+        <MyProjects/>
       </Grid>
     </Grid>
   );

@@ -14,5 +14,8 @@ export default {
             description2: "I enjoy solving problems and making things simpler.",
             who_am_i: "Software Engineer, Backend and Frontend"
           }
+    },
+    proyects:{
+        text:'My proyects'
     }
 }
