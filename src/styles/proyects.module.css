@@ -1,0 +1,39 @@
+.imageContainer {
+    height: 250px;
+    object-fit: cover;
+    transition: filter 2s;
+}
+
+
+.cardProyects {
+    height: '100%';
+    width: "100%";
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    transition: backdrop-filter 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+.cardProyects:hover{
+    backdrop-filter: blur(1px);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.cardBackgroundImage {
+    height: '100%';
+    width: "100%";
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center center;
+    border: 1px rgb(60, 60, 60) solid;
+}
+
+
+.image{
+    flex: 1; 
+    height: '100%';
+    width: '100%';
+    max-height: 100; 
+    border-radius: 15;
+    object-fit: cover;
+}

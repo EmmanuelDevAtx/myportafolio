@@ -48,13 +48,13 @@ export const MySkills = () => {
 const MinCardSkillData = ({ id, url, name }: { id:string, url: string, name: string }) => {
     const [scale, setScale] = useState<number>(0.7);
     const { width } = useSettings();
-
+    console.log('width ', width)
       const handleScroll = () => {
         const element = document.getElementById(id);
         if (element) {
             const rect = element.getBoundingClientRect();
             const elementCenterX = rect.left + rect.width / 2;
-            const windowCenterX = width / 1.7;
+            const windowCenterX = window.innerWidth / 1.7;
 
             const marginError = 200;
             if (Math.abs(elementCenterX - windowCenterX) < marginError) {
