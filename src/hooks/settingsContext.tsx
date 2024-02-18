@@ -31,10 +31,10 @@ export const SettingsProvider = ({
   children: React.ReactNode;
 }) => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
-  const [height, setScreenHeight] = useState<number>(window.innerHeight);
-  const [width, setScreenWidth] = useState<number>(window.innerWidth);
+  const [height, setScreenHeight] = useState<number>(0);
+  const [width, setScreenWidth] = useState<number>(0);
   const [isSpanish, setIsSpanish] = useState<boolean>(true);
-  const [isSmallScreen , setIsSmallScreen] = useState<boolean>(window.innerWidth < 650);
+  const [isSmallScreen , setIsSmallScreen] = useState<boolean>(false);
   const { i18n } = useTranslation();
 
   useEffect(() => {
