@@ -75,8 +75,8 @@ export const ItemProyect = ({ subtitle, linkUrlProyect, imageUrl, title, technol
                         {technology && technology?.length > 0 &&
                             technology.map((currentTechnology: Technologies, index: number) => {
                                 return (
-                                    <Grid item md={2} sm={2} xs={2}>
-                                        <ButtonItemProyect key={currentTechnology?.iconSelected ?? 'ButomItem'} iconsEnum={currentTechnology?.iconSelected}/>
+                                    <Grid item md={2} sm={2} xs={2} key={currentTechnology?.iconSelected ?? 'ButomItem'}>
+                                        <ButtonItemProyect iconsEnum={currentTechnology?.iconSelected}/>
                                     </Grid>
                                 )
                             })
@@ -88,7 +88,7 @@ export const ItemProyect = ({ subtitle, linkUrlProyect, imageUrl, title, technol
     );
 }
 
-export const ButtonItemProyect = ({ iconsEnum, key }: {iconsEnum?: IconsEnum | string, key: string }) => {
+export const ButtonItemProyect = ({ iconsEnum }: {iconsEnum?: IconsEnum | string }) => {
     const theme = useTheme();
     const { isDarkMode } = useSettings();
 
@@ -96,7 +96,6 @@ export const ButtonItemProyect = ({ iconsEnum, key }: {iconsEnum?: IconsEnum | s
     
     return (
         <ButtonSimple
-            key={key}
             initial={{ scale: 0.9 }}
             whileHover={{ scale: 1 }}
             styleMotionDiv={{ flex: 1, padding: 4, height: '86%', borderRadius: 15, backgroundColor: isDarkMode ? theme.palette.text.secondary : 'transparent', border: `1px ${theme.palette.cardProyect.main} solid` }}
