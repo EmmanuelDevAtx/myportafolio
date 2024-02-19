@@ -1,0 +1,8 @@
+.navigationTop{
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(20px);
+    z-index: 999;
+    padding: 0;
+    max-height: 90px;
+}

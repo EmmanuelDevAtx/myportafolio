@@ -8,20 +8,20 @@ import { MyProjects } from "../custom/myProyects";
 
 export const MainData = () => {
   const { t } = useTranslation();
-  const { isSmallScreen } = useSettings();
+  const { isSmallScreen, width } = useSettings();
 
   return (
     <Grid container rowSpacing={10}>
-      <Grid item md={12} sm={12} xs={12} sx={{ paddingX: !isSmallScreen ? 30 : 3 }}>
+      <Grid item md={12} sm={12} xs={12}>
         <Navigation />
       </Grid>
-      <Grid item md={12} sm={12} xs={12} sx={{ paddingX: !isSmallScreen ? 30 : 3 }}>
+      <Grid item md={12} sm={12} xs={12} sx={{ paddingX: !isSmallScreen ? (width * 0.02) : 3,  }}>
         <Welcome />
       </Grid>
       <Grid item md={12} sm={12} xs={12}>
         <MySkills />
       </Grid>
-      <Grid item md={12} sm={12} xs={12} sx={{ paddingX: !isSmallScreen ? 30 : 3 }}>
+      <Grid item md={12} sm={12} xs={12} sx={{ paddingX: !isSmallScreen ? (width * 0.02) : 3 }}>
         <MyProjects/>
       </Grid>
     </Grid>

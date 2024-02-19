@@ -27,6 +27,31 @@
             ]
         },
         {
+            "title":"Loty backOffice",
+            "subtitle":"Loty",
+            "imageUrl":"/webp/backOffice_loty.webp",
+            "technology":[
+                {
+                    "iconSelected":"NetjsIcon"
+                },
+                {
+                    "iconSelected":"GraphqlIcon"
+                },
+                {
+                    "iconSelected":"ReactIcon"
+                },
+                {
+                    "iconSelected":"TypescriptIcon"
+                },
+                {
+                    "iconSelected":"I18nIcon"
+                },
+                {
+                    "iconSelected":"MaterialUiIcon"
+                }
+            ]
+        },
+        {
             "title":"Loty User app",
             "subtitle":"Loty",
             "imageUrl":"/webp/loty_user.webp",
@@ -101,8 +126,8 @@
             "title":"Animal care",
             "subtitle":"Astratos",
             "imageUrl":"/webp/animal_care.webp",
-            "gitHubRepositoryLink":"https://github.com/EmmanuelDevAtx/animalcare-frontend",
             "linkUrlProyect":"https://animal-care-seven.vercel.app/",
+            "gitHubRepositoryLink":"https://github.com/EmmanuelDevAtx/animalcare-frontend",
             "technology":[
                 {
                     "iconSelected":"NetjsIcon"
@@ -129,7 +154,6 @@
             "subtitle":"Astratos (Animal care)",
             "imageUrl":"/webp/Ether.webp",
             "gitHubRepositoryLink":"https://github.com/EmmanuelDevAtx/animalCare",
-            "linkUrlProyect":"https://play.google.com/store/apps/details?id=com.lotypartner&hl=en_US",
             "technology":[
                 {
                     "iconSelected":"HardHatIcon"
@@ -143,19 +167,48 @@
             ]
         },
         {
+            "title":"Do esasy",
+            "subtitle":"Store control",
+            "imageUrl":"/webp/do_esasy.webp",
+            "gitHubRepositoryLink":"https://github.com/Alex360C/DoEasy",
+            "technology":[
+                {
+                    "iconSelected":"NetjsIcon"
+                },
+                {
+                    "iconSelected":"GraphqlIcon"
+                },
+                {
+                    "iconSelected":"ReactIcon"
+                },
+                {
+                    "iconSelected":"TypescriptIcon"
+                },
+                {
+                    "iconSelected":"MaterialUiIcon"
+                }
+            ]
+        },
+        {
             "title":"Store control",
             "subtitle":"Astratos (Back end)",
             "imageUrl":"/webp/nestjs.webp",
             "gitHubRepositoryLink":"https://github.com/EmmanuelDevAtx/storeControlBackend",
             "technology":[
                 {
-                    "iconSelected":"NestJSIcon"
+                    "iconSelected":"NetjsIcon"
                 },
                 {
-                    "iconSelected":"MongoDBIcon"
+                    "iconSelected":"GraphqlIcon"
+                },
+                {
+                    "iconSelected":"ReactIcon"
                 },
                 {
                     "iconSelected":"TypescriptIcon"
+                },
+                {
+                    "iconSelected":"MaterialUiIcon"
                 }
             ]
         },
