@@ -1,7 +1,9 @@
 .imageContainer {
-    height: 250px;
-    object-fit: cover;
+    height: 230px;
+    background-size: cover;
     transition: filter 2s;
+    background-repeat: true;
+    position: center center;
 }
 
 

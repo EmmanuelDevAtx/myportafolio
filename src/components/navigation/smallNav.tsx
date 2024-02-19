@@ -5,7 +5,6 @@ import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import { useTheme } from "@mui/material/styles";
 import { List, ListItemButton, ListItemText } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { useRouter } from "next/navigation";
 
 
 const drawerBleeding = 56;
@@ -19,12 +18,15 @@ interface Props {
 export default function SmallNav(props: Props) {
   const theme = useTheme();
   const { t } = useTranslation();
-  const router = useRouter();
 
   function OnPressNavigation(nav: string) {
-    router.push(nav)
+      const element = document.getElementById(nav);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     props.setClose();
   }
+  
   return (
     <Box sx={{ height: "100%" }}>
       <Global
@@ -51,15 +53,15 @@ export default function SmallNav(props: Props) {
           }}
         >
           <List sx={{ width: "100%", height: "100%" }}>
-            <ListItemButton onClick={() => OnPressNavigation('/')}>
+            <ListItemButton onClick={() => OnPressNavigation('/')} sx={{ transition: 'background-color 0.7s ease-in-out'}}>
               <ListItemText primary={t("navigation.titles.home")} />
             </ListItemButton>
 
-            <ListItemButton onClick={() => OnPressNavigation('/about')}>
+            <ListItemButton onClick={() => OnPressNavigation('/about')} sx={{ transition: 'background-color 0.7s ease-in-out'}}>
               <ListItemText primary={t("navigation.titles.about")} />
             </ListItemButton>
 
-            <ListItemButton onClick={() => OnPressNavigation('/proyects')}>
+            <ListItemButton onClick={() => OnPressNavigation('proyects')} sx={{ transition: 'background-color 0.7s ease-in-out'}}>
               <ListItemText primary={t("navigation.titles.proyects")} />
             </ListItemButton>
           </List>

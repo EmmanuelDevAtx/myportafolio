@@ -6,6 +6,7 @@ import poryectsCSS from '../../styles/proyects.module.css';
 import { useSettings } from "@/hooks/settingsContext";
 import { ButtonSimple } from "./buttonSimple";
 import { CustomIcon, IconsEnum } from "../svgIcons/icons";
+import { motion } from "framer-motion";
 
 type Technologies = {
     iconSelected?: IconsEnum | string;
@@ -32,66 +33,71 @@ export const ItemProyect = ({ subtitle, linkUrlProyect, imageUrl, title, technol
     };
 
     return (
-        <div className={poryectsCSS.cardBackgroundImage} style={{ backgroundImage: `url(${imageUrl})` }}>
-            <Card className={poryectsCSS.cardProyects} sx={{
-                maxHeight: 430,
-                height: '100%',
-                borderRadius: '10px',
-                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                backdropFilter: 'blur(10px)',
-                transition: 'backdrop-filter 0.5s ease-in-out, background-color 0.5s ease-in-out'
-            }}>
-                {
-                    title &&
-                    <CardHeader
-                        titleTypographyProps={{ fontSize: 20, color: theme.palette.cardProyect.main }}
-                        subheaderTypographyProps={{ color: theme.palette.cardProyect.disable }}
-                        title={title}
-                        subheader={subtitle}
-                        action={
-
-                            <Stack direction={'row'}>
-                                {gitHubRepositoryLink &&
-                                    <ButtonSimple
-                                        styleMotionDiv={{ flex: 1, padding: 4, height: 40, width: 40, borderRadius: 20, paddingInline: 5.5, border: ` 1px ${theme.palette.cardProyect.main} solid` }}
-                                        onClick={() => RedirectLink(gitHubRepositoryLink)}
-                                    ><GitHub style={{ fill: theme.palette.cardProyect.main, height: '100%', width: '100%' }} /></ButtonSimple>}
-                                {linkUrlProyect &&
-                                    <ButtonSimple
-                                        styleMotionDiv={{ flex: 1, padding: 4, height: 40, width: 40, borderRadius: 20, paddingInline: 5.5, border: ` 1px ${isDarkMode ? theme.palette.primary.main : theme.palette.cardProyect.main} solid` }}
-                                        onClick={() => RedirectLink(linkUrlProyect)}
-                                    ><WebIcon style={{ fill: isDarkMode ? theme.palette.primary.main : theme.palette.cardProyect.main, height: '100%', width: '100%' }} /></ButtonSimple>}
-
-                            </Stack>
-                        }
-                    />
-                }
-                <CardMedia>
+        <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}>
+            <div className={poryectsCSS.cardBackgroundImage} style={{ backgroundImage: `url(${imageUrl})` }}>
+                <Card className={poryectsCSS.cardProyects} sx={{
+                    maxHeight: 430,
+                    height: '100%',
+                    borderRadius: '10px',
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                    backdropFilter: 'blur(10px)',
+                    transition: 'backdrop-filter 0.5s ease-in-out, background-color 0.5s ease-in-out'
+                }}>
                     {
-                        imageUrl
-                            ? <img src={imageUrl} alt={imageUrl} className={poryectsCSS.imageContainer} />
-                            : <Rive
-                                style={{ maxHeight: 250, height: '100%' }}
-                                src="/rive/work.riv"
-                                stateMachines="bumpy"
-                            />
+                        title &&
+                        <CardHeader
+                            titleTypographyProps={{ fontSize: 20, color: theme.palette.cardProyect.main }}
+                            subheaderTypographyProps={{ color: theme.palette.cardProyect.disable }}
+                            title={title}
+                            subheader={subtitle}
+                            action={
+                                <Stack direction={'row'}>
+                                    {gitHubRepositoryLink &&
+                                        <ButtonSimple
+                                            styleMotionDiv={{ flex: 1, padding: 4, height: 40, width: 40, borderRadius: 20, paddingInline: 5.5, border: ` 1px ${theme.palette.cardProyect.main} solid` }}
+                                            onClick={() => RedirectLink(gitHubRepositoryLink)}
+                                        ><GitHub style={{ fill: theme.palette.cardProyect.main, height: '100%', width: '100%' }} /></ButtonSimple>}
+                                    {linkUrlProyect &&
+                                        <ButtonSimple
+                                            styleMotionDiv={{ flex: 1, padding: 4, height: 40, width: 40, borderRadius: 20, paddingInline: 5.5, border: ` 1px ${isDarkMode ? theme.palette.primary.main : theme.palette.cardProyect.main} solid` }}
+                                            onClick={() => RedirectLink(linkUrlProyect)}
+                                        ><WebIcon style={{ fill: isDarkMode ? theme.palette.primary.main : theme.palette.cardProyect.main, height: '100%', width: '100%' }} /></ButtonSimple>}
+
+                                </Stack>
+                            }
+                        />
                     }
-                </CardMedia>
-                <CardContent sx={{ height: '100%', padding: 3, width: '100%' }}>
-                    <Grid container justifyContent={'start'} >
-                        {technology && technology?.length > 0 &&
-                            technology.map((currentTechnology: Technologies, index: number) => {
-                                return (
-                                    <Grid item md={2} sm={2} xs={2} key={currentTechnology?.iconSelected ?? 'ButomItem'}>
-                                        <ButtonItemProyect iconsEnum={currentTechnology?.iconSelected} />
-                                    </Grid>
-                                )
-                            })
+                    <CardMedia>
+                        {
+                            imageUrl
+                                ? <div className={poryectsCSS.imageContainer} style={{backgroundImage: `url(${imageUrl})`}} />
+                                : <Rive
+                                    style={{ maxHeight: 250, height: '100%' }}
+                                    src="/rive/work.riv"
+                                    stateMachines="bumpy"
+                                />
                         }
-                    </Grid>
-                </CardContent>
-            </Card>
-        </div>
+                    </CardMedia>
+                    <CardContent sx={{ height: '100%', padding: 3, width: '100%' }}>
+                        <Grid container justifyContent={'start'} >
+                            {technology && technology?.length > 0 &&
+                                technology.map((currentTechnology: Technologies, index: number) => {
+                                    return (
+                                        <Grid item md={2} sm={2} xs={2} key={currentTechnology?.iconSelected ?? 'ButomItem'}>
+                                            <ButtonItemProyect iconsEnum={currentTechnology?.iconSelected} />
+                                        </Grid>
+                                    )
+                                })
+                            }
+                        </Grid>
+                    </CardContent>
+                </Card>
+            </div>
+        </motion.div>
     );
 }
 
