@@ -1,13 +1,19 @@
 import { useSettings } from "@/hooks/settingsContext"
-import { Divider, Grid, Stack, Typography } from "@mui/material"
+import { Divider, Grid, Stack, Typography, useTheme } from "@mui/material"
 import { motion } from "framer-motion"
-import { useState } from "react"
 import { useTranslation } from "react-i18next"
+import LinkedinSvg from '/public/svg/socialMedia/linkedin.svg';
+import GitHubSvg from '/public/svg/socialMedia/github.svg';
 
 export const Welcome = () => {
 
   const { t } = useTranslation();
   const { isSmallScreen } = useSettings();
+  const theme  = useTheme();
+
+  function RedirectLink(url: string) {
+    window.open(url);
+  };
 
   return (
     <Grid container spacing={10}>
@@ -39,6 +45,25 @@ export const Welcome = () => {
             <Typography variant="body1">
               {t("home.main_text.description2")}
             </Typography>
+
+            <Stack direction={'row'}>
+              <motion.div
+                onClick={() => RedirectLink('https://www.linkedin.com/in/emmanuel-mejia-morales-41a969240/')}
+                initial={{ scale: 0.9 }}
+                whileHover={{ scale: 1 }}
+                whileTap={{ scale: 1.2, rotate: 20 }}
+                animate={{ transition: { duration: 1.5, ease: 'ease' } }}>
+                <LinkedinSvg />
+              </motion.div>
+              <motion.div
+                onClick={() => RedirectLink('https://github.com/EmmanuelDevAtx')}
+                initial={{ scale: 0.9 }}
+                whileHover={{ scale: 1 }}
+                whileTap={{ scale: 1.2, rotate: 20 }}
+                animate={{ transition: { duration: 1.5, ease: 'ease' } }}>
+                <GitHubSvg fill={theme.palette.text.primary}/>
+              </motion.div>
+            </Stack>
           </Stack>
         </motion.div>
       </Grid>
