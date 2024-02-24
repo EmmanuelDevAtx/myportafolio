@@ -184,7 +184,7 @@ const HideNavigation = ({ children }: { children: React.ReactNode | JSX.Element 
 
   return <motion.div
     initial={{ y: -100 }}
-    animate={{ y: scrolling ? -100 : 0 }}
+    animate={{ y: scrolling ? -100 : -18 }}
     transition={{ duration: 0.5 }}
     className={NavigationCss.navigationTop}
     style={{
