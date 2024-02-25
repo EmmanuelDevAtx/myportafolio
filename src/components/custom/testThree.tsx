@@ -87,12 +87,12 @@ export function TestThreeJs() {
           const material = new THREE.MeshStandardMaterial( { color: 0xffffff});
           const star = new THREE.Mesh(geometry, material);
       
-          const [x, y, z] = Array(3).fill().map(()=> THREE.MathUtils.randFloatSpread(100));
+          const [x, y, z] = Array.from({ length: 3 }).map(()=> THREE.MathUtils.randFloatSpread(100));
           star.position.set(x, y, z);
           scene.add(star);
         }
 
-        Array(1000).fill().forEach(addStarts);
+        Array.from({ length: 1000 }).forEach(addStarts);
 
         const animate = () => {
           renderer.render(scene, camera);
