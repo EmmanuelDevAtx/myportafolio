@@ -74,11 +74,21 @@ export function TestThreeJs() {
           console.error(error);
         });
 
-        const light = new THREE.DirectionalLight(0xffffff, 1);
-        light.position.set(3, 1, 1);
-        scene.add(light);
-
         containerRef.current.appendChild(renderer.domElement);
+
+
+        const ligth2 = new THREE.SpotLight("#ffffff", 1);
+        ligth2.position.set(-1, 1, 1);
+        ligth2.angle = 20;
+        ligth2.intensity = 10;
+        scene.add(ligth2);
+
+
+        const ligth = new THREE.SpotLight("#0554ff", 0);
+        ligth.position.set(4, 1, 1);
+        ligth.angle = 20;
+        ligth.intensity = 15;
+        scene.add(ligth);
 
 
         // TODO: Check or change redering starts and check using shaders
