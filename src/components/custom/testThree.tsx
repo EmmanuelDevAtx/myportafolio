@@ -1,4 +1,5 @@
 import { useSettings } from "@/hooks/settingsContext";
+import { useTheme } from "@mui/material";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import React, { MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
 import * as THREE from "three";
@@ -20,8 +21,13 @@ export function TestThreeJs() {
 
 
   const { scrollY } = useScroll();
-  const { isSmallScreen } = useSettings();
+  const { isSmallScreen, isDarkMode } = useSettings();
+  const theme = useTheme();
 
+  /**
+   * This is to change the position of the camera, it calculate the position of the current scroll as percent,
+   * so it neeed the change 1892 for the total scroll os page
+   */
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrollPositionY(latest);
     const persent = (latest * 100) / 1892;
@@ -43,6 +49,11 @@ export function TestThreeJs() {
           containerRef.current.clientWidth,
           containerRef.current.clientHeight
         );
+
+        /**
+         * This code its to add the ambien of ligth, as the SUN, don't forget that the material of the object
+         * will be afected
+         */
         const ambientLight = new THREE.AmbientLight(0xffffff, 0.04)
         scene.add(ambientLight)
         const camera = new THREE.PerspectiveCamera(
@@ -51,11 +62,13 @@ export function TestThreeJs() {
           0.1,
           1000
         );
-        const mtlLoader = new MTLLoader();
 
+        /**
+         * This is to load the earth export by blender with extencion .GLTF , don't
+         * forget import all files the .GLTF and .BIN the route of the file is public/
+         */
         const loader = new GLTFLoader();
         let earthModel: any;
-        let startsModel: any;
         loader.load('/three/earth/earth.gltf', function (gltf) {
           gltf.scene.position.set(isSmallScreen? 1 : 4, 0, 0);
           scene.add(gltf.scene);
@@ -66,24 +79,28 @@ export function TestThreeJs() {
           console.error(error);
         });
 
+
+        /**
+         * This code its to add stars as particles, with random position, need to be a sphere
+         */
         containerRef.current.appendChild(renderer.domElement);
-
-        const particlesGeometry = new THREE.BufferGeometry;
-        const maxParticles = 8000;
-
+        const particlesGeometry = new THREE.BufferGeometry()  ;
+        const maxParticles = 9000;
         const porArray = new Float32Array(maxParticles * 3);
-        
         for(let i = 0; i < maxParticles; i++){
             porArray[i] = (Math.random() - 0.5) * 700;
         }
-
         particlesGeometry.setAttribute('position', new THREE.BufferAttribute(porArray, 3));
-
-        const material = new THREE.PointsMaterial({ size: 0.005});
-
+        const material = new THREE.PointsMaterial({ size: 0.5, color: isDarkMode ? 'white':'black'});
         const particlesMesh = new THREE.Points(particlesGeometry, material);
         particlesMesh.position.set(0,0,10);
         scene.add(particlesMesh);
+
+
+
+       /**
+        *  This code it's to add the spot ligth to the earth, as white and blue
+        */
         const ligth2 = new THREE.SpotLight("#ffffff", 1);
         ligth2.position.set(isSmallScreen? -2 : 1, 1, 1);
         ligth2.angle = isSmallScreen? 20 :110;
@@ -97,15 +114,38 @@ export function TestThreeJs() {
         ligth.intensity = 15;
         scene.add(ligth);
 
+
+        /**
+         * This code its a function to move the mouse 
+         */
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        const animateParticles=(event: any)=>{
+          mouseX=event.clientX;
+          mouseY=event.clientY;
+        }
+        
+        document.addEventListener('mousemove', animateParticles);
+
+       
+
+        
+
+         /**
+          * This is a function that is used to change wherever you want, it reder frame by frame
+          */
+
+         const clock = new THREE.Clock();
         const animate = () => {
+          const elapsedTime = clock.getElapsedTime()
           renderer.render(scene, camera);
           camera.position.z = cameraZoom;
-          particlesMesh.position.x += 0.03;
+          camera.rotation.x = -mouseY * ( elapsedTime * 0.00008);
+          camera.rotation.y = -mouseX * ( elapsedTime * 0.00008);
           if (earthModel) {
             earthModel.rotation.y += 0.001;
-          }
-          if(startsModel){
-            startsModel.rotation.y += 0.00005;
           }
           requestAnimationFrame(animate);
         };
