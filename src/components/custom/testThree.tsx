@@ -140,7 +140,7 @@ export function TestThreeJs() {
 
       const bloomPass = new UnrealBloomPass(
         new THREE.Vector2(containerRef.current.clientWidth, containerRef.current.clientHeight),
-        0.3,
+        0.7,
         0.1,
         0.1
       );
