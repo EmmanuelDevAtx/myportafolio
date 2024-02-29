@@ -122,30 +122,12 @@ export function TestThreeJs() {
       let mouseY = 0;
 
       const animateParticles = (event: any) => {
-        mouseX = event.clientX;
-        mouseY = event.clientY;
+        mouseX = event.clientX - (containerRef.current.clientWidth/2);
+        mouseY = event.clientY - (containerRef.current.clientHeight/2);
       }
 
       document.addEventListener('mousemove', animateParticles);
 
-
-      /**
-       * This code it gonna adding shaders using UnrealBloomPass
-       * may be need be deleted, 'cause it not supor background transparent, and i use change theme'
-       */
-
-      const renderScene = new RenderPass(scene, camera);
-      const composer = new EffectComposer(renderer);
-      composer.addPass(renderScene);
-
-      const bloomPass = new UnrealBloomPass(
-        new THREE.Vector2(containerRef.current.clientWidth, containerRef.current.clientHeight),
-        0.7,
-        0.1,
-        0.1
-      );
-
-      composer.addPass(bloomPass);
       /**
        * This is a function that is used to change wherever you want, it reder frame by frame
        */
@@ -155,10 +137,8 @@ export function TestThreeJs() {
         const elapsedTime = clock.getElapsedTime()
         renderer.render(scene, camera);
         camera.position.z = cameraZoom;
-        camera.rotation.x = -mouseY * (elapsedTime * 0.00008);
-        camera.rotation.y = -mouseX * (elapsedTime * 0.00008);
-
-        composer.render();
+        camera.rotation.x = -mouseY * 0.0002 ;
+        camera.rotation.y = -mouseX * 0.0002 ;
         if (earthModel) {
           earthModel.rotation.y += 0.001;
         }
