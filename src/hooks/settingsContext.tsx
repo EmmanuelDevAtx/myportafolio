@@ -42,7 +42,7 @@ export const SettingsProvider = ({
   useEffect(() => {
     const settingsData = async () => {
       const settingsDataStorage = await settingsStorage.getData();
-      const isDarkModeStorageData = settingsDataStorage?.isDarkMode ?? true;
+      const isDarkModeStorageData = await settingsDataStorage?.isDarkMode ?? true;
       setIsDarkMode(isDarkModeStorageData);
 
       const isSpanishMode = settingsDataStorage?.lang ?? 'es'

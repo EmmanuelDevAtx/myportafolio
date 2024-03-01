@@ -80,6 +80,49 @@ export function TestThreeJs() {
         console.error(error);
       });
 
+        /**
+       *  This code it's to add the spot ligth to the earth, as white and blue
+       */
+        const ligth2 = new THREE.SpotLight("#ffffff", 1);
+        ligth2.position.set(isSmallScreen ? -2 : 1, 1, 1);
+        ligth2.angle = isSmallScreen ? 20 : 110;
+        ligth2.intensity = 10;
+        scene.add(ligth2);
+  
+  
+        const ligth = new THREE.SpotLight("#0554ff", 0);
+        ligth.position.set(isSmallScreen ? 3 : 6, 1, 1);
+        ligth.angle = 20;
+        ligth.intensity = 15;
+        scene.add(ligth);
+
+
+
+
+
+      /**
+       * This is to load the satelital model export by blender with extencion .GLTF , don't
+       * forget import all files the .GLTF and .BIN the route of the file is public/
+       */
+      let satelital: any;
+      loader.load('/three/satelitalModel/satelital.gltf', function (gltf) {
+        gltf.scene.position.set(5, 0, 7);
+        scene.add(gltf.scene);
+        satelital = gltf.scene;
+        setSize(1);
+
+      }, undefined, function (error: any) {
+        console.error(error);
+      });
+
+
+      const ligthSatelital = new THREE.SpotLight("#1a46e8", 0);
+      ligthSatelital.position.set(6,0,10);
+      ligthSatelital.angle = 20;
+      ligthSatelital.intensity = 10;
+      scene.add(ligthSatelital);
+
+
 
       /**
        * This code its to add stars as particles, with random position, need to be a sphere
@@ -91,27 +134,14 @@ export function TestThreeJs() {
       for (let i = 0; i < maxParticles; i++) {
         porArray[i] = (Math.random() - 0.5) * 1000;
       }
+
       particlesGeometry.setAttribute('position', new THREE.BufferAttribute(porArray, 3));
-      const material = new THREE.PointsMaterial({ size: 0.5, color: isDarkMode ? 'white' : 'black' });
+      const material = isDarkMode? new THREE.PointsMaterial({ size: 0.5, color: 'white' }):new THREE.PointsMaterial({ size: 0.5, color: 'black' });
       const particlesMesh = new THREE.Points(particlesGeometry, material);
       particlesMesh.position.set(0, 2, 9);
       scene.add(particlesMesh);
 
-      /**
-       *  This code it's to add the spot ligth to the earth, as white and blue
-       */
-      const ligth2 = new THREE.SpotLight("#ffffff", 1);
-      ligth2.position.set(isSmallScreen ? -2 : 1, 1, 1);
-      ligth2.angle = isSmallScreen ? 20 : 110;
-      ligth2.intensity = 10;
-      scene.add(ligth2);
-
-
-      const ligth = new THREE.SpotLight("#0554ff", 0);
-      ligth.position.set(isSmallScreen ? 3 : 6, 1, 1);
-      ligth.angle = 20;
-      ligth.intensity = 15;
-      scene.add(ligth);
+    
 
 
       /**
@@ -130,24 +160,28 @@ export function TestThreeJs() {
 
       /**
        * This is a function that is used to change wherever you want, it reder frame by frame
-       */
+       */ 
 
       const clock = new THREE.Clock();
       const animate = () => {
         const elapsedTime = clock.getElapsedTime()
         renderer.render(scene, camera);
         camera.position.z = cameraZoom;
-        camera.rotation.x = -mouseY * 0.0002 ;
-        camera.rotation.y = -mouseX * 0.0002 ;
+        camera.rotation.x = -mouseY * 0.0003 ;
+        camera.rotation.y = -mouseX * 0.0003 ;
         if (earthModel) {
           earthModel.rotation.y += 0.001;
+        }
+
+        if(satelital){
+          satelital.rotation.z += 0.005;
         }
         requestAnimationFrame(animate);
       };
       animate();
 
     }
-  }, [isSmallScreen]);
+  }, [theme.palette]);
 
   return (
     <div ref={containerRef} style={{ height: '100%', width: '100%' }} />
