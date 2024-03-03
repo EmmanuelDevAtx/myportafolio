@@ -50,7 +50,7 @@ export const SettingsProvider = ({
       i18n.changeLanguage(isSpanishMode);
     };
     settingsData();
-  }, []);
+  }, [isSmallScreen]);
   
   useEffect(() => {
     const handleResize = () => {

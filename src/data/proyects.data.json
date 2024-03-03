@@ -24,7 +24,8 @@
                 {
                     "iconSelected":"MaterialUiIcon"
                 }
-            ]
+            ],
+            "type":"WORKS"
         },
         {
             "title":"Loty backOffice",
@@ -49,7 +50,8 @@
                 {
                     "iconSelected":"MaterialUiIcon"
                 }
-            ]
+            ],
+            "type":"WORKS"
         },
         {
             "title":"Loty User app",
@@ -75,7 +77,8 @@
                 {
                     "iconSelected":"FireBaseIcon"
                 }
-            ]
+            ],
+            "type":"WORKS"
         },
         {
             "title":"Loty Partner app",
@@ -101,7 +104,8 @@
                 {
                     "iconSelected":"FireBaseIcon"
                 }
-            ]
+            ],
+            "type":"WORKS"
         },
         {
             "title":"Loty backend",
@@ -120,7 +124,8 @@
                 {
                     "iconSelected":"TypescriptIcon"
                 }
-            ]
+            ],
+            "type":"WORKS"
         },
         {
             "title":"Animal care",
@@ -147,7 +152,8 @@
                 {
                     "iconSelected":"TypescriptIcon"
                 }
-            ]
+            ],
+            "type":"OWN_PROYECTS"
         },
         {
             "title":"Backend",
@@ -164,7 +170,8 @@
                 {
                     "iconSelected":"WalletConnectIcon"
                 }
-            ]
+            ],
+            "type":"OWN_PROYECTS"
         },
         {
             "title":"Do esasy",
@@ -187,7 +194,8 @@
                 {
                     "iconSelected":"MaterialUiIcon"
                 }
-            ]
+            ],
+            "type":"WORKS"
         },
         {
             "title":"Store control",
@@ -210,7 +218,8 @@
                 {
                     "iconSelected":"MaterialUiIcon"
                 }
-            ]
+            ],
+            "type":"WORKS"
         },
         {
             "title":"Backend ",
@@ -224,7 +233,8 @@
                 {
                     "iconSelected":"TypescriptIcon"
                 }
-            ]
+            ],
+            "type":"OWN_PROYECTS"
         },
         {
             "title":"U learn",
@@ -245,7 +255,8 @@
                 {
                     "iconSelected":"I18nIcon"
                 }
-            ]
+            ],
+            "type":"OWN_PROYECTS"
         }
     ]
 }
