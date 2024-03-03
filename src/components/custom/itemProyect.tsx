@@ -6,21 +6,10 @@ import poryectsCSS from '../../styles/proyects.module.css';
 import { useSettings } from "@/hooks/settingsContext";
 import { ButtonSimple } from "./buttonSimple";
 import { CustomIcon, IconsEnum } from "../svgIcons/icons";
-import { motion } from "framer-motion";
+import { MotionStyle, motion } from "framer-motion";
+import { ItemProyectInputType, Technologies } from "@/utils/types";
 
-type Technologies = {
-    iconSelected?: IconsEnum | string;
-    openUrl?: string;
-    customAction?: () => void;
-}
-export type ItemProyectInputType = {
-    imageUrl?: string;
-    title?: string;
-    subtitle?: string;
-    technology?: Technologies[];
-    linkUrlProyect?: string;
-    gitHubRepositoryLink?: string;
-}
+
 
 
 export const ItemProyect = ({ subtitle, linkUrlProyect, imageUrl, title, technology, gitHubRepositoryLink }: ItemProyectInputType) => {
@@ -101,7 +90,7 @@ export const ItemProyect = ({ subtitle, linkUrlProyect, imageUrl, title, technol
     );
 }
 
-export const ButtonItemProyect = ({ iconsEnum }: { iconsEnum?: IconsEnum | string }) => {
+export const ButtonItemProyect = ({ iconsEnum, styleMotionDiv }: { iconsEnum?: IconsEnum | string, styleMotionDiv?: MotionStyle }) => {
     const theme = useTheme();
     const { isDarkMode } = useSettings();
 
@@ -111,7 +100,7 @@ export const ButtonItemProyect = ({ iconsEnum }: { iconsEnum?: IconsEnum | strin
         <ButtonSimple
             initial={{ scale: 0.9 }}
             whileHover={{ scale: 1 }}
-            styleMotionDiv={{ flex: 1, padding: 4, height: '86%', borderRadius: 15, backgroundColor: isDarkMode ? theme.palette.text.secondary : 'transparent', border: `1px ${theme.palette.cardProyect.main} solid` }}
+            styleMotionDiv={{ flex: 1, padding: 4, height: '86%', borderRadius: 15, backgroundColor: isDarkMode ? theme.palette.text.secondary : 'transparent', border: `1px ${theme.palette.cardProyect.main} solid`, ...styleMotionDiv }}
         >
             {CustomIcon(iconsEnum, theme.palette.background.default, '100%', '100%', theme.palette.text.primary)}
         </ButtonSimple>

@@ -16,6 +16,10 @@ export default {
           }
     },
     proyects:{
-        text:'My proyects'
+        text:'My proyects',
+        items:{
+            jobs: "Jobs",
+            own_proyects: "Own proyects",
+        }
     }
 }

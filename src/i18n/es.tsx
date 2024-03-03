@@ -16,6 +16,10 @@ export default {
         }
     },
     proyects:{
-        text:'Mis proyectos'
+        text:'Mis proyectos',
+        items:{
+            jobs: "Trabajo",
+            own_proyects: "Proyectos propios",
+        }
     }
 }
