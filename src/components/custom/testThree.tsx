@@ -1,10 +1,9 @@
 import { useSettings } from "@/hooks/settingsContext";
 import { useTheme } from "@mui/material";
-import { useMotionValueEvent, useScroll } from "framer-motion";
-import React, { MutableRefObject, RefObject, useEffect, useRef, useState } from "react";
+import { useMotionValueEvent, useScroll, useViewportScroll } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import { EffectComposer, GLTFLoader, OrbitControls, RenderPass, UnrealBloomPass } from "three/examples/jsm/Addons.js";
-import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader.js";
+import { GLTFLoader } from "three/examples/jsm/Addons.js";
 
 // TODO: Refactor all this ccode to use diferents models
 const maxZoom = 8;
@@ -20,17 +19,18 @@ export function TestThreeJs() {
   const scene = new THREE.Scene();
 
 
-  const { scrollY } = useScroll();
+  // const { scrollY } = useScroll();
   const { isSmallScreen, isDarkMode } = useSettings();
   const theme = useTheme();
 
+  const { scrollY } = useScroll()
   /**
    * This is to change the position of the camera, it calculate the position of the current scroll as percent,
    * so it neeed the change 1892 for the total scroll os page
    */
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrollPositionY(latest);
-    const persent = (latest * 100) / 1892;
+    const persent = (latest * 100) / (document?.body?.scrollHeight - window?.innerHeight );
     cameraZoom = ((minZoom - maxZoom) * (persent / 100) + maxZoom);
     console.log(' cameraZoom  ', cameraZoom);
   })
@@ -106,7 +106,7 @@ export function TestThreeJs() {
        */
       let satelital: any;
       loader.load('/three/satelitalModel/satelital.gltf', function (gltf) {
-        gltf.scene.position.set(5, 0, 7);
+        gltf.scene.position.set(5, 0, 10);
         scene.add(gltf.scene);
         satelital = gltf.scene;
         setSize(1);
