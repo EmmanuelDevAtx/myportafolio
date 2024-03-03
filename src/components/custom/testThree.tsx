@@ -129,16 +129,16 @@ export function TestThreeJs() {
        */
       containerRef.current.appendChild(renderer.domElement);
       const particlesGeometry = new THREE.BufferGeometry();
-      const maxParticles = 7000;
+      const maxParticles = 9000;
       const porArray = new Float32Array(maxParticles * 3);
       for (let i = 0; i < maxParticles; i++) {
-        porArray[i] = (Math.random() - 0.5) * 1000;
+        porArray[i] = (Math.random() - 0.5) * 800;
       }
 
       particlesGeometry.setAttribute('position', new THREE.BufferAttribute(porArray, 3));
-      const material = isDarkMode? new THREE.PointsMaterial({ size: 0.5, color: 'white' }):new THREE.PointsMaterial({ size: 0.5, color: 'black' });
+      const material = theme.palette.mode === 'dark' ? new THREE.PointsMaterial({ size: 0.5, color: 'white' }):new THREE.PointsMaterial({ size: 0.5, color: 'black' });
       const particlesMesh = new THREE.Points(particlesGeometry, material);
-      particlesMesh.position.set(0, 2, 9);
+      particlesMesh.position.set(0, 0, 0);
       scene.add(particlesMesh);
 
     
@@ -169,6 +169,7 @@ export function TestThreeJs() {
         camera.position.z = cameraZoom;
         camera.rotation.x = -mouseY * 0.0003 ;
         camera.rotation.y = -mouseX * 0.0003 ;
+        particlesMesh.rotation.y += 0.0007; 
         if (earthModel) {
           earthModel.rotation.y += 0.001;
         }
@@ -181,7 +182,7 @@ export function TestThreeJs() {
       animate();
 
     }
-  }, [theme.palette]);
+  }, [theme.palette, theme.palette.mode]);
 
   return (
     <div ref={containerRef} style={{ height: '100%', width: '100%' }} />
