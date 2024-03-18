@@ -25,7 +25,9 @@
                     "iconSelected":"MaterialUiIcon"
                 }
             ],
-            "type":"WORKS"
+            "type":"WORKS",
+            "description_es":"This is a dashboard that the partners can check their data, about the traction about the interaction between users apps and partner apps",
+            "description_en":"Este es un dashboard, donde los socios pueden ver los datos de como va la tracción de los usuario de la app y los socios qu eusan la app"
         },
         {
             "title":"Loty backOffice",
@@ -51,7 +53,9 @@
                     "iconSelected":"MaterialUiIcon"
                 }
             ],
-            "type":"WORKS"
+            "type":"WORKS",
+            "description_es":"This is a dasboard to admins",
+            "description_en":"Este es un dashboard solo para los administradores"
         },
         {
             "title":"Loty User app",
@@ -78,7 +82,9 @@
                     "iconSelected":"FireBaseIcon"
                 }
             ],
-            "type":"WORKS"
+            "type":"WORKS",
+            "description_es":"This is a app that the finals users use that check them nfts as unic to get new benefits by the loyalty",
+            "description_en":"Esta es una app que usa un usuario final , la usa para registrar las visitas en una negocio que tenga el programa de loty, de esa manera ganar premios por la lealtad."
         },
         {
             "title":"Loty Partner app",
@@ -105,7 +111,9 @@
                     "iconSelected":"FireBaseIcon"
                 }
             ],
-            "type":"WORKS"
+            "type":"WORKS",
+            "description_es":"This is the app for de brands, it can make checkins and distribuit the benefits to de current user",
+            "description_en":"Esta es la contra parte de la que es para users, esta es la que hace la interación con los usuarios"
         },
         {
             "title":"Loty backend",
@@ -125,7 +133,9 @@
                     "iconSelected":"TypescriptIcon"
                 }
             ],
-            "type":"WORKS"
+            "type":"WORKS",
+            "description_en":"Its the backend of Loty, its the brain, (i can't say description for privacity reasons)",
+            "description_es":"Es la lógica de Loty backend, (por razones de privacidad no puedo decir mucho)"
         },
         {
             "title":"Animal care",
@@ -153,10 +163,12 @@
                     "iconSelected":"TypescriptIcon"
                 }
             ],
-            "type":"OWN_PROYECTS"
+            "type":"OWN_PROYECTS",
+            "description_en":"This is the front end, it can create new animals in blockchains with the smart contract deployed, it have wallet connect to conect with your own wallet and any provides as Metamask, Ranbow walle, is in progress yet.t",
+            "description_es":"Este es el fron end de Animal care, puedes crear animales virtuales en web3, puedes conectar tus wallets con walletconnect, puedes hacer diversas acciones, aún esta en proceso de creación."
         },
         {
-            "title":"Backend",
+            "title":"Animal Care Backend",
             "subtitle":"Astratos (Animal care)",
             "imageUrl":"/webp/Ether.webp",
             "gitHubRepositoryLink":"https://github.com/EmmanuelDevAtx/animalCare",
@@ -171,7 +183,9 @@
                     "iconSelected":"WalletConnectIcon"
                 }
             ],
-            "type":"OWN_PROYECTS"
+            "type":"OWN_PROYECTS",
+            "description_en":"This is the back end from Animal care, it have technologies as HardHat, typescript, and i create diverse smart contract to distribute all the aplication, only can create 3 animals, can shared wiht another users, can go to the bath, and take a bath, have statistics, it need eat too, can do excercise, can get fat, a more actions, i look like a real animal.",
+            "description_es":"Etes es el backend de Animal care, este proyecto lo he creado con tecnologías como Hardhat, typescript, esto funciona para crear diversos animales, como maximo 3, esto funciona como un animal en la vida real, puede hacer ejercicio, ponerse rellenito, tomar un baño, puede ensuciarse, tiene estadisticas de un animal real."
         },
         {
             "title":"Do esasy",
@@ -195,7 +209,9 @@
                     "iconSelected":"MaterialUiIcon"
                 }
             ],
-            "type":"WORKS"
+            "type":"WORKS",
+            "description_en":"This is for the owner know when they members do a check in, and the admin can know how many hours have worke and in based about that can pay.",
+            "description_es":"Este es para que el admin pueda saber cuando sus empleados hagan check, y en base a eso, se les pague por las horas que han trabajado sus empleados."
         },
         {
             "title":"Store control",
@@ -219,7 +235,9 @@
                     "iconSelected":"MaterialUiIcon"
                 }
             ],
-            "type":"WORKS"
+            "type":"WORKS",
+            "description_en":"This is the back end, and save the checkins in Mongo DB, and it returns the checkins for the users, make the calculations for pay the money and save this informations when the admin make a report.",
+            "description_es":"Esto es el back end de store control, este guarda la información en Mongo DB, hace los calculos del de lo que se le va a pagar al empleador, cuando el administrador hace los reportes los guarda y hace el corte."
         },
         {
             "title":"Backend ",
@@ -234,7 +252,9 @@
                     "iconSelected":"TypescriptIcon"
                 }
             ],
-            "type":"OWN_PROYECTS"
+            "type":"OWN_PROYECTS",
+            "description_en":"This is backend when i take one of course of Nest js, it work with postgresSQL, TypeORM, and provides auth for the users.",
+            "description_es":"Este es el back end de un curso que tomé de nest js, el cual esta conectado con postgresSQl, usa TypeORM y usa autenticación para proteger toda la app"
         },
         {
             "title":"U learn",
@@ -256,7 +276,9 @@
                     "iconSelected":"I18nIcon"
                 }
             ],
-            "type":"OWN_PROYECTS"
+            "type":"OWN_PROYECTS",
+            "description_en":"This is a proyect have make it React Native in  of pratices my skills of react native, it can help ypu with your learning, it connect with chatGPT API, so i need money to pay it the request of OPEN IA, for this reason i don't have give support.",
+            "description_es":"Este es un proyecto hecho en react native, que lo use para praticar mis hablidades, usa la api de Chat GTP, lametablemente no tiene soporte porque he superado el maximo de petiticones a la API, es un chat bot para ayudarte a aprender nuevas cosas de la manera mas simple."
         }
     ]
 }
