@@ -3,11 +3,11 @@ import { Typography, useTheme } from "@mui/material";
 export const ItemNavigation = ({
     title,
     onPress,
-    isActive,
+    isActive = false,
   }: {
     title: string;
     onPress: () => void;
-    isActive: boolean;
+    isActive?: boolean;
   }) => {
     const theme = useTheme();
   
