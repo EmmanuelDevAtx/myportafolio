@@ -58,8 +58,8 @@ export const Footer = () => {
                     <Grid item md={2} sm={6} xs={6} alignContent={'center'} alignItems={'center'}>
                         <Stack alignItems={'center'} >
                             <Box>
-                                {UserData.works.map((work) => (
-                                    <ProductsItems text={isSpanish ? work.name_es : work.name_en} iconEnum={work.icon} theme={theme} />
+                                {UserData.works.map((work, index) => (
+                                    <ProductsItems key={"UserData.works"+index} text={isSpanish ? work.name_es : work.name_en} iconEnum={work.icon} theme={theme} />
                                 ))}
                             </Box>
                         </Stack>
@@ -67,9 +67,10 @@ export const Footer = () => {
 
                     <Grid item md={2} sm={6} xs={6} alignContent={'center'}>
                         <Stack alignItems={'self-start'}>
-                            {UserData.contact.map((contact) => {
+                            {UserData.contact.map((contact, index) => {
                                 return (
                                     <motion.div
+                                    key={'UserData.contact '+index}
                                         style={{ margin: '7px 0px', cursor: 'pointer' }}
                                         whileHover={{ scale: 1.2 }}
                                         whileTap={{ scale: 1 }}>
@@ -88,8 +89,8 @@ export const Footer = () => {
     );
 }
 
-export const ProductsItems = ({ text, iconEnum, theme }: { text: string, iconEnum: string, theme: Theme }) => (
-    <Stack direction={'row'} alignItems={'center'} sx={{ margin: '16px 0px' }}>
+export const ProductsItems = ({ text, iconEnum, theme, key }: { text: string, iconEnum: string, theme: Theme, key:string }) => (
+    <Stack key={key} direction={'row'} alignItems={'center'} sx={{ margin: '16px 0px' }}>
         {CustomIcon(iconEnum, theme.palette.background.default, '15px', '15px', theme.palette.text.primary)}
         <Typography>
             {text}
