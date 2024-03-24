@@ -57,7 +57,7 @@ export default function SmallNav(props: Props) {
               <ListItemText primary={t("navigation.titles.home")} />
             </ListItemButton>
 
-            <ListItemButton onClick={() => OnPressNavigation('/about')} sx={{ transition: 'background-color 0.7s ease-in-out'}}>
+            <ListItemButton onClick={() => OnPressNavigation('about-me')} sx={{ transition: 'background-color 0.7s ease-in-out'}}>
               <ListItemText primary={t("navigation.titles.about")} />
             </ListItemButton>
 

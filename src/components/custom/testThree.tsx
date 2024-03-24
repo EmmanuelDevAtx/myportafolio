@@ -32,7 +32,6 @@ export function TestThreeJs() {
     setScrollPositionY(latest);
     const persent = (latest * 100) / (document?.body?.scrollHeight - window?.innerHeight );
     cameraZoom = ((minZoom - maxZoom) * (persent / 100) + maxZoom);
-    console.log(' cameraZoom  ', cameraZoom);
   })
 
 

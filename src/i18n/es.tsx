@@ -25,5 +25,12 @@ export default {
     footer:{
         contact_me:'Contactame!',
         contact_description:'Hagamos cosas juntos!',   
+    },
+    about_me:{
+        title:"Acerca de mi",
+        description_1: "Hola!, Te cuento un breve de quien soy, Soy Emmannuel Mejia Morales, originario de México Tlaxcala, soy Ingeniero en TI con enfoque al desarrollo de software, lo que me apasiona hacer es aprender nuevas cosas y aplicarlas al mundo laborar, soy bastante proactivo.",
+        description_2:"Me gusta crear sofware primordialmente, apreciar el arte, aunque no soy un artista, me gusta imaginar emociones en el arte, tambien me gusta jugar videojuegos aunque con mucha menos recuencia que antes, me gusta escuchar musica relajante.",
+        description_3:"Tambien me gusta ver feliz a mi familia, me gusta aprender como es diferentes formas de vida forman lazos invisbles, es decir, lazos emocionales com los lazos humanos.",
+        phrase:'"Los sentidos promueven las emociones, y sentir es el mayor arte de la vida, se queda en nosotros hasta el fin, buenos o malos."'
     }
 }

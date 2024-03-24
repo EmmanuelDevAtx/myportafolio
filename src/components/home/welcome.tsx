@@ -16,7 +16,7 @@ export const Welcome = () => {
   };
 
   return (
-    <Grid container spacing={10}>
+    <Grid container spacing={10} id="home">
       <Grid item md={5} height={"100%"} sx={{ alignSelf: "center"}}>
         <motion.div
           animate={{ x: 0, opacity: 1, transition: { duration: 1 } }}

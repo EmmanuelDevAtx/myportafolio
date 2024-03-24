@@ -59,17 +59,14 @@ export const Navigation = () => {
                 <Stack sx={{ padding: 2 }} direction={"row"} spacing={5}>
                   <ItemNavigation
                     title={t("navigation.titles.home")}
-                    isActive={pathname === "/"}
-                    onPress={() => OnPressNavigation("/")}
+                    onPress={() => OnPressNavigation("home")}
                   />
                   <ItemNavigation
                     title={t("navigation.titles.about")}
-                    isActive={pathname === "/about"}
-                    onPress={() => OnPressNavigation("about")}
+                    onPress={() => OnPressNavigation("about-me")}
                   />
                   <ItemNavigation
                     title={t("navigation.titles.proyects")}
-                    isActive={pathname === "/proyects"}
                     onPress={() => OnPressNavigation("proyects")}
                   />
                 </Stack>
