@@ -1,0 +1,36 @@
+{
+    "contact":[
+        {
+            "name":"Linkedin",
+            "url":"",
+            "icon":"Linkedin"
+        },
+        {
+            "name":"GitHub",
+            "url":"",
+            "icon":"GitHub"
+        },
+        {
+            "name":"Email",
+            "url":"",
+            "icon":"Email"
+        }
+    ],
+    "works":[
+        {
+            "name_es":"Páginas web",
+            "name_en": "Web apps",
+            "icon":"WebApps"
+        },
+        {
+            "name_es":"Aplicaciones móviles",
+            "name_en": "Movile apps",
+            "icon":"Mobile"
+        },
+        {
+            "name_es":"Back end",
+            "name_en": "Back end",
+            "icon":"Engine"
+        }
+    ]
+}

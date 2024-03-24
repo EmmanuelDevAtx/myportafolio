@@ -21,5 +21,9 @@ export default {
             jobs: "Jobs",
             own_proyects: "Own proyects",
         }
+    },
+    footer:{
+        contact_me:'Contact me!',
+        contact_description:"let's make things together",   
     }
 }
