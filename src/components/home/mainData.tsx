@@ -13,7 +13,7 @@ export const MainData = () => {
 
 
   return (
-    <Grid container rowSpacing={10} marginBottom={10}>
+    <Grid container rowSpacing={10} marginBottom={ !isSmallScreen ? 25: 60}>
       <Grid item md={12} sm={12} xs={12}>
         <Navigation />
       </Grid>
