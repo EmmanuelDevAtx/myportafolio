@@ -3,7 +3,8 @@ export default {
         titles: {
             home: 'Home',
             about: 'About me',
-            proyects: 'Proyects'
+            proyects: 'Proyects',
+            background:'Backgroud'
         }
     },
     home: {
@@ -32,5 +33,9 @@ export default {
         description_2: "I enjoy primarily creating software, appreciating art, although I'm not an artist myself. I like to imagine emotions in art. I also enjoy playing video games, although much less frequently than before, and I like to listen to relaxing music.",
         description_3: "I also enjoy seeing my family happy. I like to learn how different ways of life form invisible bonds, that is, emotional ties like human connections.",
         phrase: 'The senses promote emotions, and feeling is the greatest art of life, it stays with us until the end, whether good or bad.'
+    },
+    background:{
+        title:'My background',
+
     }
 }

@@ -64,6 +64,9 @@ export default function SmallNav(props: Props) {
             <ListItemButton onClick={() => OnPressNavigation('proyects')} sx={{ transition: 'background-color 0.7s ease-in-out'}}>
               <ListItemText primary={t("navigation.titles.proyects")} />
             </ListItemButton>
+            <ListItemButton onClick={() => OnPressNavigation('background')} sx={{ transition: 'background-color 0.7s ease-in-out'}}>
+              <ListItemText primary={t("navigation.titles.background")} />
+            </ListItemButton>
           </List>
         </Box>
       </SwipeableDrawer>

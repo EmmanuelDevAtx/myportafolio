@@ -3,7 +3,8 @@ export default {
         titles:{
             home: 'Inicio',
             about:'Acerca me',
-            proyects: 'Proyectos'
+            proyects: 'Proyectos',
+            background:'Fondo'
         }
     },
     home:{

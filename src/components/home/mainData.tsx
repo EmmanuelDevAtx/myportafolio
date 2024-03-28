@@ -7,6 +7,7 @@ import { useSettings } from "@/hooks/settingsContext";
 import { MyProjects } from "../custom/myProyects";
 import { TestThreeJs } from "../custom/testThree";
 import { AboutMe } from "../aboutme/about.me";
+import { BackGround } from "../background/background";
 
 export const MainData = () => {
   const { t } = useTranslation();
@@ -21,19 +22,20 @@ export const MainData = () => {
       <Grid item md={12} sm={12} xs={12} sx={{ paddingX: !isSmallScreen ? (width * 0.02) : 3, paddingY: 3 }}>
         <Welcome />
       </Grid>
-
       <Box sx={{ height: '100%', width: '100%', position: 'fixed', zIndex: -1 }}>
         <TestThreeJs />
       </Box>
       <Grid item md={12} sm={12} xs={12}>
         <MySkills />
       </Grid>
-      <Grid item md={12} sm={12} xs={12} sx={{ paddingX: !isSmallScreen ? (width * 0.02) : 3 }}>
+      <Grid item md={12} sm={12} xs={12} sx={{ paddingX: !isSmallScreen ? (width * 0.02) : 3, paddingBottom: !isSmallScreen? 0 : 10 }}>
         <MyProjects />
       </Grid>
       <Grid item md={12} sm={12} xs={12} sx={{ paddingX: !isSmallScreen ? (width * 0.02) : 3 }}>
-        <AboutMe
-        />
+        <AboutMe/>
+      </Grid>
+      <Grid item md={12} sm={12} xs={12} sx={{ paddingX: !isSmallScreen ? (width * 0.02) : 3 }}>
+        <BackGround/>
       </Grid>
     </Grid>
   );

@@ -31,7 +31,7 @@ export const MyProjects = () => {
                 <motion.div
                     animate={{ x: 0, opacity: 1, transition: { duration: 2 } }}
                     initial={{ x: -100, opacity: 0 }}>
-                    <Typography id="proyects" variant="h4"> {t('proyects.text')} </Typography>
+                    <Typography id="proyects" variant="h4" color="primary"> {t('proyects.text')} </Typography>
                 </motion.div>
             </Grid>
             <Grid item md={12} xs={12} sm={12}>

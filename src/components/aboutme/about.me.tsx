@@ -8,7 +8,7 @@ export const AboutMe = () => {
     return (
         <Grid container rowSpacing={4}>
             <Grid item md={12} xs={12} sm={12}>
-                <Typography variant="h4" id="about-me">{t('about_me.title')}</Typography>
+                <Typography variant="h4" color="primary" id="about-me">{t('about_me.title')}</Typography>
             </Grid>
             <Grid item md={12} xs={12} sm={12}>
                 <Grid container columnSpacing={10}>

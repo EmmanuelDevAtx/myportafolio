@@ -69,6 +69,10 @@ export const Navigation = () => {
                     title={t("navigation.titles.proyects")}
                     onPress={() => OnPressNavigation("proyects")}
                   />
+                  <ItemNavigation
+                    title={t("navigation.titles.background")}
+                    onPress={() => OnPressNavigation("background")}
+                  />
                 </Stack>
               </Box>
             </Grid>
