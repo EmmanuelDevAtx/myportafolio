@@ -8,6 +8,7 @@ import { MyProjects } from "../custom/myProyects";
 import { TestThreeJs } from "../custom/testThree";
 import { AboutMe } from "../aboutme/about.me";
 import { BackGround } from "../background/background";
+import { ConnectContainer } from "../timeline/components/connectContainers";
 
 export const MainData = () => {
   const { t } = useTranslation();

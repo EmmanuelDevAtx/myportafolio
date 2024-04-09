@@ -1,0 +1,83 @@
+.conatiner{
+    background-color: black;
+    height: 100px;
+    width: 100%;
+    border-radius: 10px
+}
+
+.last-item-conatiner{
+    background-color: black;
+    height: 100px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.connect-horizontal{
+    background-color: green;
+    max-height: 5px;
+    height: 100%;
+    width: 100%;
+    align-self: center;
+}
+
+.connect-vertical{
+    background-color: green;
+    max-width: 5px;
+    width: 50%;
+    height: 100%;
+    justify-self: center;
+}
+
+.connect-left-to-down{
+    border: 5px green solid;
+    border-left: 0px;
+    border-bottom: 0px;
+    width: 51%;
+    height: 50%;
+    align-self: flex-end;
+}
+
+.connect-rigth-to-down{
+    border: 5px green solid;
+    border-right: 0px;
+    border-bottom: 0px;
+    width: 51%;
+    height: 50%;
+    align-self: flex-end;justify-items: center;
+}
+
+.connect-left-to-up{
+    border: 5px green solid;
+    height: 50%;
+    width: 51%;
+    border-top: 0px;
+    border-left: 0px;
+    border-bottom-right-radius: 20px;
+}
+
+.connect-rigth-to-up{
+    border: 5px green solid;
+    border-top: 0px;
+    border-right: 0px;
+    width: 51%;
+    height: 50%;
+    border-bottom-left-radius: 20px;
+}
+
+
+.time-line{
+    background-color: aqua;
+}
+
+.container-grid{
+    display: grid;
+}  
+
+.container-connect-grid{
+    display: grid;
+    background-color:brown;
+}
+
+.justify-items-end{
+    justify-items: end;
+}
