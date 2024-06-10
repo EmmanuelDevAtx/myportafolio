@@ -11,7 +11,7 @@ export type ContainerTimeLineType = {
 
 export type TimeLineInput = {
     maxItemsPerRow?: number;
-    data: { title: string }[];
+    data: ReactNode[];
     connect90Degrees?:boolean;
     startTimeLine?: DirectionRow;
     direcctionColumn?: enumDirecctionColumn;

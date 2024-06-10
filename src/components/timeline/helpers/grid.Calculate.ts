@@ -1,3 +1,4 @@
+import React, { ReactNode } from "react";
 import { GridDirecctionTimeLineSnake, enumDirecctionColumn } from "../class";
 
 export enum DirectionRow {
@@ -17,10 +18,10 @@ export enum GridDirectionEnum {
 }
 
 export type RowData = {
-    title: string ,
+    element: any,
     arrowDirecction: GridDirectionEnum,
     lastIndex: boolean,
-    isNull:boolean
+    isNull: boolean
 };
 
 export type GridCalculateReturnData = {
@@ -28,7 +29,7 @@ export type GridCalculateReturnData = {
     row: RowData[];
 }
 
-export function GridCalculate(items: { title: string }[], maxItemsPerRow?: number, startTimeline?: DirectionRow, direcctionColumn?: enumDirecctionColumn): GridCalculateReturnData[] {
+export function GridCalculate(items: ReactNode[], maxItemsPerRow?: number, startTimeline?: DirectionRow, direcctionColumn?: enumDirecctionColumn): GridCalculateReturnData[] {
 
     const gridData = new GridDirecctionTimeLineSnake(direcctionColumn ?? enumDirecctionColumn.endToStart, startTimeline ?? DirectionRow.leftToRigth);
 
@@ -47,13 +48,13 @@ export function GridCalculate(items: { title: string }[], maxItemsPerRow?: numbe
     items.forEach((item, index) => {
         gridData.arrowDirecction = GridDirectionEnum.leftToRigth
 
-        if (currentIndex >= (itemPerRow - 1 ) || index == (items.length - 1)) {
+        if (currentIndex >= (itemPerRow - 1) || index == (items.length - 1)) {
             gridData.putArrowCorner();
         }
 
-        gridData.pushRowData(item.title, index == (items.length - 1), false);
-        if (index == (items.length - 1) && itemPerRow != gridData.currentRowLength ) {
-            for(let sumEmptyItems = 0; sumEmptyItems <= (itemPerRow - gridData.currentRowLength); sumEmptyItems++){
+        gridData.pushRowData(item, index == (items.length - 1), false);
+        if (index == (items.length - 1) && itemPerRow != gridData.currentRowLength) {
+            for (let sumEmptyItems = 0; sumEmptyItems <= (itemPerRow - gridData.currentRowLength); sumEmptyItems++) {
                 gridData.pushRowData('null', false, true);
             }
         }

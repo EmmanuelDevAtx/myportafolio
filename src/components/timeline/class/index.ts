@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { DirectionRow, GridCalculateReturnData, GridDirectionEnum, RowData } from "../helpers/grid.Calculate";
 
 export enum enumDirecctionColumn {
@@ -44,11 +45,11 @@ export class GridDirecctionTimeLineSnake implements GridDataInterface {
             : this._directionRow = DirectionRow.leftToRigth
     }
 
-    pushRowData(data: string, lastIndex: boolean, isNull: boolean) {
+    pushRowData(data: ReactNode, lastIndex: boolean, isNull: boolean) {
 
         let dataToPush: RowData;
 
-        dataToPush = { title: data, arrowDirecction: this._arrowDirecction, lastIndex, isNull }
+        dataToPush = { element: data, arrowDirecction: this._arrowDirecction, lastIndex, isNull }
 
         if (this._directionRow == DirectionRow.leftToRigth) {
             this._rowCurrentData.push(dataToPush);

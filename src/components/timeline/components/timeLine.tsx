@@ -8,7 +8,7 @@ import '../styles/container.css';
 import '../styles/grid.css';
 import { enumDirecctionColumn } from '../class';
 
-export const SnakeTimeLine = ({ maxItemsPerRow = 2, data, startTimeLine, direcctionColumn, isContinue }: TimeLineInput) => {
+export const    SnakeTimeLine = ({ maxItemsPerRow = 2, data, startTimeLine, direcctionColumn, isContinue }: TimeLineInput) => {
     const [dataTransformed, setDataTransformed] = useState<GridCalculateReturnData[]>([]);
     const itemsPerRow = (maxItemsPerRow < 2 ? 2 : maxItemsPerRow);
     useEffect(() => {   

@@ -19,6 +19,6 @@ export const LastContainerItem = ({ customContainer, containerStyle, children }:
     }
 
     return (
-            <div className="last-item-conatiner">{children}</div>
+        children
     );
 }

@@ -2,7 +2,10 @@ import { DirectionRow, GridDirectionEnum, RowData } from "../helpers/grid.Calcul
 import { ConnectContainer } from "./connectContainers";
 import { ContainerItem, LastContainerItem } from "./containerItem";
 
-export const ContainerWithConnect = ({ title, arrowDirecction, directionRow, key, isContinue, lastIndex, maxItemsPerRow, isPhatom }: RowData & { key: string, directionRow: DirectionRow, isContinue?: boolean, maxItemsPerRow: number, isPhatom: boolean }) => {
+export const ContainerWithConnect = ({ element, arrowDirecction, directionRow, key, isContinue, lastIndex, maxItemsPerRow, isPhatom }: RowData & { key: string, directionRow: DirectionRow, isContinue?: boolean, maxItemsPerRow: number, isPhatom: boolean }) => {
+    
+    console.log('element => ', element);
+    
     if (isPhatom) {
         return (
             <div key={key} style={{ display: 'flex', }}>
@@ -19,7 +22,7 @@ export const ContainerWithConnect = ({ title, arrowDirecction, directionRow, key
                 }
 
                 <div style={{ flex: 1 }}>
-                    <LastContainerItem children={title} />
+                    <LastContainerItem children={element} />
                 </div>
 
                 {directionRow === DirectionRow.leftToRigth &&
@@ -33,7 +36,7 @@ export const ContainerWithConnect = ({ title, arrowDirecction, directionRow, key
         return (
             <div key={key} style={{ display: 'flex' }}>
                 <div style={{ flex: 1 }}>
-                    <ContainerItem children={title} />
+                    <ContainerItem children={element} />
                 </div>
                 <div style={{ flex: 1, display: 'flex' }}>
                     <ConnectContainer arrowDirecction={arrowDirecction} />
@@ -49,7 +52,7 @@ export const ContainerWithConnect = ({ title, arrowDirecction, directionRow, key
                     <ConnectContainer arrowDirecction={arrowDirecction} />
                 </div>
                 <div style={{ flex: 1 }} >
-                    <ContainerItem children={title} />
+                    <ContainerItem children={element} />
                 </div>
             </div>
         );

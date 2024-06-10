@@ -42,7 +42,7 @@ export const MySkills = () => {
             animate={{ opacity: 1 }}
             transition={{ ease: "easeInOut", duration: 4, }}
         >
-            <div className={Css.slider} style={{ maxWidth: width, overflow:'hidden' }}>
+            <div className={Css.slider} style={{ maxWidth: width, overflow: 'hidden' }}>
                 <div className={Css.sliderTrack}>
                     {
                         skillsData.map((item: SkillDatatype, index: number) => {
@@ -69,9 +69,9 @@ const MinCardSkillData = ({ id, url, name, scale, UpdateScale, idItem }: { id: s
         if (element) {
             const rect = element.getBoundingClientRect();
             const elementCenterX = rect.left + rect.width / 2;
-            const windowCenterX =  window.innerWidth / 1.6;
+            const windowCenterX = window.innerWidth / 1.6;
 
-            const margin = window.innerWidth* 0.20;
+            const margin = window.innerWidth * 0.20;
 
             if (elementCenterX > 0 && elementCenterX < window.innerWidth) {
                 if (elementCenterX < windowCenterX - margin || elementCenterX > windowCenterX + margin) {
@@ -99,7 +99,7 @@ const MinCardSkillData = ({ id, url, name, scale, UpdateScale, idItem }: { id: s
             className={`${Css.slide} ${Css.slider}`}
             initial={{ scale: 0.7 }}
             animate={{ scale: scale ?? 0.7 }}
-            transition={{ ease: "easeInOut", duration: width > 650 ? 10 : 2}}
+            transition={{ ease: "easeInOut", duration: width > 650 ? 10 : 2 }}
         >
             <Card sx={{ borderRadius: 5, padding: 3 }}>
                 <Stack textAlign={'center'} justifyItems={'center'}>
